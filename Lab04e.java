@@ -10,22 +10,23 @@ public class Lab04e
 {
 	public static void main ( String[] args )
 	{
-		StringChecker demo = new StringChecker("chicken");
-		out.println("looking for c "+demo.findLetter('c'));
-		out.println("looking for ch "+demo.findSubString("ch"));
-		out.println("looking for x "+demo.findSubString("x"));
+		String chicken = "chicken", alligator = "alligator", cs = "COMPUTER SCIENCE IS THE BEST";
+		StringChecker demo = new StringChecker(chicken);
+		out.println("looking for c in " + chicken +" ... " +demo.findLetter('c'));
+		out.println("looking for ch in " + chicken +" ... " +demo.findSubString("ch"));
+		out.println("looking for x in " + chicken +" ... "+demo.findSubString("x"));
 		out.println(demo);
 
-		demo.setString("alligator");
-		out.println("looking for g "+demo.findLetter('g'));
-		out.println("looking for all "+demo.findSubString("all"));
-		out.println("looking for gater "+demo.findSubString("gater"));
+		demo.setString(alligator);
+		out.println("looking for g in " + alligator +" ... "+demo.findLetter('g'));
+		out.println("looking for all in " + alligator +" ... "+demo.findSubString("all"));
+		out.println("looking for gater in " + alligator +" ... "+demo.findSubString("gater"));
 		out.println(demo);
 
-		demo.setString("COMPUTER SCIENCE IS THE BEST!");
-		out.println("looking for U "+demo.findLetter('U'));
-		out.println("looking for COMP SCI "+demo.findSubString("COMP SCI"));
-		out.println("looking for SCIENCE "+demo.findSubString("SCIENCE"));
+		demo.setString(cs);
+		out.println("looking for U in " + cs +" ... "+demo.findLetter('U'));
+		out.println("looking for COMP SCI in " + cs +" ... "+demo.findSubString("COMP SCI"));
+		out.println("looking for SCIENCE in " + cs +" ... "+demo.findSubString("SCIENCE"));
 		out.println(demo);
 	}
 }

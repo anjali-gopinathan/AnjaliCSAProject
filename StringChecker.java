@@ -13,37 +13,30 @@ public class StringChecker
 	public StringChecker()
 	{
 
-
 	}
-
 	public StringChecker(String s)
 	{
-		
+		setString(s);
 	}
 
    public void setString(String s)
    {
 	   word=s;
    }
-
 	public boolean findLetter(char c)
 	{
-		
-		/*for(int i=0; i<word.length(); i++){
-			if(word.indexOf("ch") == )
-		}*/
-
-		return false;
+		if(word.indexOf(c) >=0 && word.indexOf(c) <word.length())
+			return true;
+		else
+			return false;
 	}
-
 	public boolean findSubString(String s)
 	{
-
-
-
-		return false;
+		if(word.indexOf(s) >=0 && word.indexOf(s)<word.length()  )
+			return true;
+		else 
+			return false;
 	}
-
  	public String toString()
  	{
  		return "\n\n";
