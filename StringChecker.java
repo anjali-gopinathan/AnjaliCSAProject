@@ -39,6 +39,6 @@ public class StringChecker
 	}
  	public String toString()
  	{
- 		return "\n\n";
+ 		return word + "\n\n";
 	}
 }
