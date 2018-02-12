@@ -66,6 +66,7 @@ public class CharacterAnalyzer
 		if (isUpper()){charType = "an UPPERCASE letter";}
 		else if (isLower()){charType = "a lowercase letter";}
 		else if (isNumber()){charType = "a number";}
+		else{ charType = "a symbol";}
 		
 		return ""+getChar() + " is "+ charType +". ASCII = " + getASCII() + "\n";	  
 	}
