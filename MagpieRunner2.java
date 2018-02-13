@@ -18,11 +18,14 @@ public class MagpieRunner2
 		System.out.println (maggie.getGreeting());
 		Scanner in = new Scanner (System.in);
 		String statement = in.nextLine().toLowerCase();
-		
-		while (!statement.equals("Bye"))
+		//System.out.println(statement);
+		while (!statement.equals("bye"))
 		{
+			//System.out.println (statement);
+
 			System.out.println (maggie.getResponse(statement));
-			statement = in.nextLine();
+
+			statement = in.nextLine().toLowerCase();
 		}
 	}
 

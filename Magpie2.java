@@ -49,6 +49,25 @@ public class Magpie2
 		else if (statement.indexOf("mauro")>=0){
 			response = "I've heard Mr. Mauro is a great teacher.";
 		}
+		else if (statement.indexOf("school") >=0
+				||statement.indexOf("class") >=0
+				||statement.indexOf("test") >=0
+				||statement.indexOf("quiz") >=0
+				||statement.indexOf("notes") >=0) {
+			response = "Gosh, do you even talk about anything else? The only thing you talk about is school!";
+		}
+		else if(statement.indexOf("weather") >=0)
+			response = "The weather is nice.";
+		else if(statement.indexOf("joke") >=0)
+			response = "If I told you a joke in my language, I'd have to explain it.";
+		else if(statement.indexOf("food") >=0
+				||statement.indexOf("hungry") >=0
+				||statement.indexOf("snack") >=0)
+			response = "If you're hungry, go get some food!";
+		
+		
+		else if (statement.indexOf("") ==0)
+			response = "Say something!";
 		else{
 			response = getRandomResponse();
 		}
