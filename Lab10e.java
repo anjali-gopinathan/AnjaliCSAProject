@@ -14,13 +14,13 @@ public class Lab10e
 		Scanner keyboard = new Scanner(System.in);
 		char response;
 		int upBound;
-
-		System.out.println("Guessing game - how many numbers?");
-		upBound = keyboard.nextInt();
-		GuessingGame guess = new GuessingGame(upBound);
 		do {
+
+			System.out.println("Guessing game - try to guess my number - how many numbers?");
+			upBound = keyboard.nextInt();
+			GuessingGame guess = new GuessingGame(upBound);
 			guess.playGame();
-			out.println("Do you want to play again? (y or n)");
+			out.println("\n\nDo you want to play again? (y or n)");
 			response = keyboard.next().charAt(0);
 		}while(response == 'y');
 

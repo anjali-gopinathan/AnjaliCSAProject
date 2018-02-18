@@ -38,6 +38,8 @@ public class GuessingGame
 		}
 
 		System.out.println("It took you " + numGuesses + " guesses to guess the number " + myNum + ".");
+		double wrongRate = (  (  (double)numGuesses - 1  )*100)/(  (double)numGuesses );
+		out.println("You guessed wrong "+ wrongRate + " percent of the time.");
 	}
 
 	public String toString()
