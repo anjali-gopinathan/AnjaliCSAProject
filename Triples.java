@@ -28,21 +28,39 @@ public class Triples
 	private int greatestCommonFactor(int a, int b, int c)
 	{
 		int max = 0;
-		//for()
 
-
-		return 1;
+		for(int i=0; i<c; i++){
+			if( (   (a%i == 0) && (b%i ==0)   ) && (c%i ==0) ){
+				max=i;
+			}
+		}
+		return max;
 	}
 
 	public String toString()
 	{
 		String output="";
+			
+		for(int a=0; a<number; a++){
+			for(int b=0; b<number; b++){
+				for(int c=0; c<number; c++){
+					if(  (c*c) == ( (a*a)+ (b*b) )  ){
+						output +="\npythag equation true\n";
+						if(((a%2 == 1 && b%2 == 0)||(a%2==0 && b%2==1)  )&&(c%2==1)){//if a is odd
+							output+="2nd condition true with all those odd/even things\n";
+							if(greatestCommonFactor(a,b,c) <=1){
+								output+="3rd condition true, gcf <=1\n";
+								output+=a + "\t"+b +"\t"+ c + "\n";
+							}
+						}
+					}
+				}
+			}
+		}
 
 
 
 
-
-
-		return output+"\n";
+		return ""+output+"\n";
 	}
 }
