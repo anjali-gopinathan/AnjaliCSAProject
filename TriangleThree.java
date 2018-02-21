@@ -25,19 +25,22 @@ public class TriangleThree
 		size = sz;
 		letter = let;
 	}
-	public String getLetter()
+	/*public String getLetter()
 	{
 		return letter;
-	}
+	}*/
 	public String toString()
 	{
 		String output="";
+		int midpoint;
 		for(int i=0; i<size; i++) {				//row #
-			for(int j=0; j<size-i-1; j++) {		//Add size-i spaces
-				output= output + " ";
+			midpoint = size-i-1;				//subtract 1 from size-i to account for offset of for loop
+
+			for(int j=0; j<midpoint; j++) {		//Add size-i spaces
+				output+=" ";
 			}
 
-			for(int j=size-i-1; j<size; j++) {	//Add i letters
+			for(int j=midpoint; j<size; j++) {	//Add i letters
 				output+=letter;
 			}
 			output+="\n";
