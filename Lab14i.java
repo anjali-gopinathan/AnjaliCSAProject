@@ -22,7 +22,8 @@ public class Lab14i
 		test.setNumber(2500);
 		out.println("2500 is " + test.toString());
 
-		test = new RomanNumeral(1500);
+		test.setNumber(1500);
+		//test = new RomanNumeral(1500);
 		out.println("1500 is " + test.toString());
 
 		test.setNumber(23);
@@ -35,15 +36,15 @@ public class Lab14i
 		out.println("49 is " + test.toString());
 
 		test.setRoman("LXXVII");
-		out.println("LXXVII is " + test.getNumber() + "\n");
-
+		out.println("LXXVII is " + test.getNumber());
+		
 		test.setRoman("XLIX");
-		out.println("XLIX is " + test.getNumber() + "\n");
+		out.println("XLIX is " + test.getNumber());
 
 		test.setRoman("XX");
-		out.println("XX is " + test.getNumber() + "\n");
+		out.println("XX is " + test.getNumber());
 
-		test.setRoman("XLIX");
-		out.println("XLIX is " + test.getNumber() + "\n");
+		test.setRoman("XXXVIII");
+		out.println("XLIX is " + test.getNumber());
 	}
 }
