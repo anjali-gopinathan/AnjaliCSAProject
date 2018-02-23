@@ -11,7 +11,7 @@ public class Lab14d
 		//add test cases
 		Grades howGood = new Grades();
 		
-		double[] data1 = {100.0, 90.0, 85.0, 72.5, 95.6};
+		double[] data1 = new double[]{100.0, 90.0, 85.0, 72.5, 95.6};	//instantiation interchangeable with initialization
 		double[] data2 = {50,100,80};
 		double[] data3 = {93.4, -90, 90};
 		double[] data4 = {1,2,3,4,5,6,7,8,9};
