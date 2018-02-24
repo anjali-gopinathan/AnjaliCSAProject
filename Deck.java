@@ -31,8 +31,14 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		for(int i=0; i< ranks.length; i++){				//ranks.length = suits.length = values.length
-			
+		
+		cards = new Card[52];
+		for(int i=0; i< ranks.length; i++){				//Should be true: ranks.length = suits.length = values.length
+			for(int j=0; j<suits.length; j++){
+				for(int k=0; k<values.length; k++){
+					
+				}
+			}
 		}
 	}
 
