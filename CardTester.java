@@ -11,7 +11,7 @@ public class CardTester {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
 		Card c1 = new Card("10", "hearts", 10);
 		//c("A", "spades", 11);
-		Card c2 = new Card("Ace",  "spades", 11);		//??is an ace 11 points???
+		Card c2 = new Card("Ace",  "spades", 1);
 		Card c3 = new Card("4",  "clubs",  4);
 		
 		System.out.println(c1.rank());

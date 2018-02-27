@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -31,15 +32,20 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		
-		cards = new Card[52];
-		for(int i=0; i< ranks.length; i++){				//Should be true: ranks.length = suits.length = values.length
+		int index = 0;
+		cards = new Card[ranks.length * suits.length];		//Card[52]
+		for(int i=0; i< ranks.length; i++){			//Should be true: ranks.length = suits.length = values.length
 			for(int j=0; j<suits.length; j++){
 				for(int k=0; k<values.length; k++){
-					
+					Card c = new Card(ranks[i], suits[j], values[k]);
+					cards[index] = c;
+					index++;
 				}
 			}
 		}
+		size = cards.length;
+		System.out.println(Arrays.toString(cards));
+		shuffle();
 	}
 
 
@@ -49,6 +55,8 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
+		return size == 0;
 	}
 
 	/**
@@ -57,6 +65,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -65,6 +74,19 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Card temp;
+		for(int k=cards.length-1; k>0; k--){
+			int howMany = k+1, start = 0;
+			int randPos = (int) (Math.random()*howMany) + start;
+			
+			temp = cards[k];
+			cards[k] = cards[randPos];
+			cards[randPos] = temp;
+			
+			size = cards.length;
+		
+		
+		}
 	}
 
 	/**
@@ -74,6 +96,13 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		size = cards.length;
+		int dealMe = size;
+		while(!isEmpty()){
+			dealMe--;
+			return cards[dealMe];
+		}
+		return null;
 	}
 
 	/**
