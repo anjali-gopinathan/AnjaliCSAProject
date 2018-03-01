@@ -33,7 +33,10 @@ public class Card {
 	 *                  containing the point value of the card
 	 */
 	public Card(String cardRank, String cardSuit, int cardPointValue) {
-		
+		rank = cardRank;
+		suit = cardSuit;
+		pointValue = cardPointValue;
+				
 	}
 
 
@@ -84,7 +87,7 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		String output="" + rank() + " of " + suit() + "(point value = " + pointValue() + ")";
+		String output="" + rank() + " of " + suit() + " (point value = " + pointValue() + ")";
 		return output;
 	}
 }

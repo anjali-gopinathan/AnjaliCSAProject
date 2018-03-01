@@ -22,6 +22,7 @@ public class CardTester {
 		System.out.println(c1.matches(c2));
 		
 		System.out.println(c1);
-	
+
+		
 	}
 }
