@@ -8,7 +8,8 @@ public class Shuffler {
 	 * to each sorting procedure.
 	 */
 	private static final int SHUFFLE_COUNT = 1;
-
+	private static Card[] cards;
+	//Card[] cards = new Card[52];
 	/**
 	 * The number of values to shuffle.
 	 */
@@ -61,6 +62,28 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		/*Card[] shuffled = new Card[52];
+		int k=0;
+		for(int j=0; j<26; j++){
+			shuffled[k] = cards[j];
+			k=k+2;
+		}
+		k=1;
+		for(int j=26; j<52; j++){
+			shuffled[k] = cards[j];
+			k=k+2;
+		}*/
+		int[] shuffled = values;
+		int k=0;
+		for(int j=0; j<26; j++){
+			shuffled[k] = values[j];
+			k=k+2;
+		}
+		k=1;
+		for(int j=26; j<52; j++){
+			shuffled[k] = values[j];
+			k=k+2;
+		}
 	}
 
 	/**
@@ -76,5 +99,14 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = values;
+		int j=0;
+		for(int k=0; k<52; k++){
+			while(values.length !=0){
+				j=(int) Math.random() * 52;
+			}
+			shuffled[k] = values[j];
+			values[j] =0;
+		}
 	}
 }
