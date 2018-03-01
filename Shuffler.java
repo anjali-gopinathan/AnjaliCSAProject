@@ -41,7 +41,7 @@ public class Shuffler {
 		int[] values2 = new int[VALUE_COUNT];
 		for (int i = 0; i < values2.length; i++) {
 			values2[i] = i;
-			}
+		}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");

@@ -19,5 +19,7 @@ public class DeckTester {
 		System.out.println(d1.size());
 		System.out.println(d1.deal());
 		System.out.println(d1.size());
+		
+		Card[] deck1 = new Card[52];
 	}
 }

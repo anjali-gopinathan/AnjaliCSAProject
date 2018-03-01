@@ -36,11 +36,11 @@ public class Deck {
 		cards = new Card[ranks.length * suits.length];		//Card[52]
 		for(int i=0; i< ranks.length; i++){			//Should be true: ranks.length = suits.length = values.length
 			for(int j=0; j<suits.length; j++){
-				for(int k=0; k<values.length; k++){
-					Card c = new Card(ranks[i], suits[j], values[k]);
+				//for(int k=0; k<values.length; k++){
+					Card c = new Card(ranks[i], suits[j], values[i]);
 					cards[index] = c;
 					index++;
-				}
+				//}
 			}
 		}
 		size = cards.length;
@@ -74,7 +74,9 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		Card temp;
+		Card[] shuffled = new Card[52];
+		
+		/*Card temp;
 		for(int k=cards.length-1; k>0; k--){
 			int howMany = k+1, start = 0;
 			int randPos = (int) (Math.random()*howMany) + start;
@@ -86,6 +88,18 @@ public class Deck {
 			size = cards.length;
 		
 		
+		}*/
+		
+		
+		//asdf
+		shuffled = cards;
+		int j=0;
+		for(int k=0; k<52; k++){
+			while(cards.length !=0){
+				j=(int) Math.random() * 52;
+			}
+			shuffled[k] = cards[j];
+			cards[j] = null;
 		}
 	}
 
@@ -114,23 +128,24 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			rtn = rtn + cards[k];
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
 			if ((size - k) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
+				
 				rtn = rtn + "\n";
 			}
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+		for (int k = cards.length - 1; k >= size; k--) {
+			rtn = rtn + cards[k];
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - cards.length) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
