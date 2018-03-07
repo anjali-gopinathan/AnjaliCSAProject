@@ -16,7 +16,9 @@ public class MadLib
 	private ArrayList<String> verbs;
 	private ArrayList<String> nouns;
 	private ArrayList<String> adjectives;
-	
+	private final int numVerbs = 13;
+	private final int numNouns = 19;
+	private final int numAdjectives = 16;
 	public MadLib()
 	{
 		verbs = new ArrayList<String>();
@@ -59,12 +61,13 @@ public class MadLib
 
 	public void loadNouns()
 	{
+		nouns = new ArrayList<String>();
+		int i=0;
 		try{
-		
-		
-		
-		
-		
+			Scanner check = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\nouns.dat"));
+			while(i < nouns.size()){
+				nouns.add(nouns.get(i));
+			}
 		}
 		catch(Exception e)
 		{
@@ -74,53 +77,55 @@ public class MadLib
 	
 	public void loadVerbs()
 	{
+		verbs = new ArrayList<String>();
+		int i=0;
 		try{
-	
-	
-	
-	
-	
+			Scanner check = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\verbs.dat"));
+			while(i < verbs.size()){
+				verbs.add(verbs.get(i));
+			}
 		}
 		catch(Exception e)
 		{
-		}
+		}	
 	}
 
 	public void loadAdjectives()
 	{
+		adjectives = new ArrayList<String>();
+		int i=0;
 		try{
-	
-	
-	
-	
-	
+			Scanner check = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\adjectives.dat"));
+			while(i < adjectives.size()){
+				adjectives.add(adjectives.get(i));
+			}
 		}
 		catch(Exception e)
 		{
-		}
+		}	
 	}
 
 	public String getRandomVerb()
 	{
-		int r = (int)Math.random()*13;
+		int r = (int)Math.random()*numVerbs;
 		String s = "";
-		//for(int i=0; i<r; i++){
-			//s=verbs.next();
-		//}
+		
 		s= verbs.get(r);
 		return s;
 	}
 	
 	public String getRandomNoun()
 	{
-		
-		return "";
+		int r = (int)Math.random()*numNouns;
+		String s = ""+nouns.get(r);
+		return s;
 	}
 	
 	public String getRandomAdjective()
 	{
-		
-		return "";
+		int r = (int)Math.random()*numAdjectives;
+		String s = ""+adjectives.get(r);
+		return s;
 	}		
 
 	public String toString()
