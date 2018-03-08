@@ -10,20 +10,25 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import static java.lang.System.*;
+import java.util.Random;
 
 public class MadLib
 {
 	private ArrayList<String> verbs;
 	private ArrayList<String> nouns;
 	private ArrayList<String> adjectives;
-	private final int numVerbs = 13;
+	
+	private final int NUMVERBS = 13;
 	private final int numNouns = 19;
 	private final int numAdjectives = 16;
+	
+	String str = "";
+	
 	public MadLib()
 	{
-		verbs = new ArrayList<String>();
-		nouns = new ArrayList<String>();
-		adjectives = new ArrayList<String>();
+		//verbs = new ArrayList<String>();
+		//nouns = new ArrayList<String>();
+		//adjectives = new ArrayList<String>();
 	}
 
 	public MadLib(String fileName)
@@ -37,19 +42,11 @@ public class MadLib
 		
 		try{
 			Scanner file = new Scanner(new File(fileName));
+			
 			while(file.hasNext()){
-				String symbol = file.next();
-				if(symbol.equals("#")){	//noun
-					out.println(getRandomNoun());
-				}
-				else if(symbol.equals("@")){	//verb
-					out.println(getRandomVerb());
-				}
-				else if(symbol.equals("&")){	//adjective
-					out.println(getRandomAdjective());
-				}
+				//out.println("t");
+				str+= file.next() + " ";
 			}
-	
 		
 		}
 		catch(Exception e)
@@ -62,12 +59,15 @@ public class MadLib
 	public void loadNouns()
 	{
 		nouns = new ArrayList<String>();
-		int i=0;
+		//int i=0;
 		try{
-			Scanner check = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\nouns.dat"));
-			while(i < nouns.size()){
-				nouns.add(nouns.get(i));
+			Scanner checkN = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\nouns.dat"));
+			//while(i < nouns.size()){
+			while(checkN.hasNext()){
+				nouns.add(checkN.nextLine());
+				//i++;
 			}
+			checkN.close();
 		}
 		catch(Exception e)
 		{
@@ -78,12 +78,12 @@ public class MadLib
 	public void loadVerbs()
 	{
 		verbs = new ArrayList<String>();
-		int i=0;
 		try{
-			Scanner check = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\verbs.dat"));
-			while(i < verbs.size()){
-				verbs.add(verbs.get(i));
+			Scanner checkV = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\verbs.dat"));
+			while(checkV.hasNext()){
+				verbs.add(checkV.nextLine());
 			}
+			checkV.close();
 		}
 		catch(Exception e)
 		{
@@ -93,12 +93,12 @@ public class MadLib
 	public void loadAdjectives()
 	{
 		adjectives = new ArrayList<String>();
-		int i=0;
 		try{
-			Scanner check = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\adjectives.dat"));
-			while(i < adjectives.size()){
-				adjectives.add(adjectives.get(i));
+			Scanner checkA = new Scanner(new File("H:\\APCSA\\Unit10-2016\\Unit10-Assignments\\Lab16d\\adjectives.dat"));
+			while(checkA.hasNext()){
+				adjectives.add(checkA.nextLine());
 			}
+			checkA.close();
 		}
 		catch(Exception e)
 		{
@@ -107,29 +107,47 @@ public class MadLib
 
 	public String getRandomVerb()
 	{
-		int r = (int)Math.random()*numVerbs;
-		String s = "";
-		
-		s= verbs.get(r);
+		Random ra = new Random();
+		int r = ra.nextInt(verbs.size());
+		String s = verbs.get(r);
 		return s;
 	}
 	
 	public String getRandomNoun()
 	{
-		int r = (int)Math.random()*numNouns;
-		String s = ""+nouns.get(r);
+		Random ra = new Random();
+		int r = ra.nextInt(nouns.size());
+		String s = nouns.get(r);
 		return s;
 	}
 	
 	public String getRandomAdjective()
 	{
-		int r = (int)Math.random()*numAdjectives;
-		String s = ""+adjectives.get(r);
+		Random ra = new Random();
+		int r = ra.nextInt(adjectives.size());
+		String s = adjectives.get(r);
 		return s;
 	}		
 
 	public String toString()
 	{
-	   return "\n\n\n";
+		for(int i=0; i<str.length(); i++){
+			//String symbol = file.next();
+			if(str.charAt(i)=='#'){	//noun
+				//out.println(getRandomNoun());
+				str = str.substring(0, i) + getRandomNoun() + str.substring(i+1);
+			}
+			else if(str.charAt(i) == '@'){	//verb
+				//out.println(getRandomVerb());
+				str = str.substring(0, i)  + getRandomVerb()  +str.substring(i+1);				
+			}
+			else if(str.charAt(i)=='&'){	//adjective
+				//out.println(getRandomAdjective());
+				str = str.substring(0, i)  +  getRandomAdjective() + str.substring(i+1);
+			}
+			//else str+=" ";
+		}
+		return str+"\n\n\n";
+
 	}
 }
