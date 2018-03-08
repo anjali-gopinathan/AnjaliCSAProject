@@ -42,8 +42,20 @@ public class Histogram
 
 	public void loadAndAnalyzeFile() throws IOException
 	{
+		String str="";
+		try{
+			Scanner file = new Scanner(new File(fileName));
+			
+			while(file.hasNext()){
+				//out.println("t");
+				str+= file.next() + " ";
+			}
 		
-
+		}
+		catch(Exception e)
+		{
+			out.println("Houston we have a problem!");
+		}
 
 
 
@@ -59,6 +71,7 @@ public class Histogram
 			if(){
 				c++;
 			}
+			
 		}
 		return '#';
 	}
