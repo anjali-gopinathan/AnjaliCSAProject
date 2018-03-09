@@ -19,7 +19,8 @@ public class Histogram
 
 	public Histogram()
 	{
-
+		count = new ArrayList<Integer>();
+		letters = new ArrayList<Character>();
 
 
 
@@ -27,66 +28,73 @@ public class Histogram
 
 	public Histogram(char[] values, String fName)
 	{
-		try{
-			Scanner file = new Scanner(new File(fName));
+		fileName = fName;
+		count = new ArrayList<Integer>();
+		letters = new ArrayList<Character>();
+		for (int i = 0; i < values.length; i++) {
+			letters.add(values[i]);
 		}
-		catch{
-			System.out.println("problem uh oh");
-		}
 
-
-
-
-		out.println("search letters = "+letters);
+		out.println("search letters = " + letters);
 	}
 
 	public void loadAndAnalyzeFile() throws IOException
 	{
+		//fName = new ArrayList<String>();
 		String str="";
-		try{
-			Scanner file = new Scanner(new File(fileName));
-			
-			while(file.hasNext()){
-				//out.println("t");
-				str+= file.next() + " ";
+	//	try{
+			for (int i = 0; i < letters.size(); i++) {
+				Scanner file = new Scanner(new File(fileName));
+				int j = 0;
+				
+				while (file.hasNext()) {
+					str = file.next();
+					for (int k = 0; k < str.length(); k++) {
+						if (str.charAt(k) == letters.get(i)){
+							j++;
+						}
+						
+					}
+
+				
+				}
+				count.add(j);
 			}
-		
-		}
-		catch(Exception e)
-		{
-			out.println("Houston we have a problem!");
-		}
-
-
-
-
-
-
+//		}
+//		catch(Exception e){out.println("Houston we have a problem!");}
 	}
 
 	public char mostFrequent()
 	{
-		int c=0;
-		for(int i=0; i<letters.size(); i++){
-			if(){
+		int max = count.get(0), c=0;
+		for(int i=0; i<count.size(); i++){
+			
+			if(count.get(i) > max){
+				max = count.get(i);
 				c++;
 			}
 			
 		}
-		return '#';
+		return letters.get(c);
 	}
 
 	public char leastFrequent()
 	{
+		int min = count.get(0), c=0;
+		for(int i=0; i<count.size(); i++){
+			
+			if(count.get(i) < min){
+				min = count.get(i);
+				c++;
+			}
+			
+		}
+		return letters.get(c);
 
-
-		return '#';
 	}
 
 	public String toString()
 	{
-	   return fileName
-	   + "\n" + letters
-	   + "\n" + count + "\n\n\n";
+	   return fileName + "\n" + letters + "\n" + count + "\n\n\n";
 	}
 }
