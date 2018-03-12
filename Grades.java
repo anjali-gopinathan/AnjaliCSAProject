@@ -2,58 +2,90 @@
 //Name -
 //Date -
 //Class -
-//Lab  -lab 14d
+//Lab  -
 
-import java.lang.System;
-import java.lang.Math;
+import java.util.Arrays;
 import java.util.Scanner;
+import static java.lang.System.*;
+import static java.util.Arrays.*;
 
-public class Grades{
-	//instance variables
-	private int numGrades;
+public class Grades
+{
 	private double[] grades;
-
-	//constructor
-	public Grades(){
+	
+	public Grades()
+	{
+		setGrades("");
 	}
-	public Grades(int sz, double[] scores){
-		setGrades(sz, scores);
+	
+	public Grades(String gradeList)
+	{
+		setGrades(gradeList);		
 	}
-
-
-	//set method
-	public void setGrades(int sz, double[] scores){
-		numGrades = sz;
-		grades = scores;
+	
+	public void setGrades(String gradeList)
+	{
+		Scanner check = new Scanner(gradeList);
+		double[] vals = new double[check.nextInt()];
+		check.next();
+		int index=0;
+		while(check.hasNextDouble()){
+			vals[index] = check.nextDouble();
+			index++;
+		}
+		grades = vals;
+		check.close();
 	}
-
-
-	private double getSum(){
+	
+	public void setGrade(int spot, double grade)
+	{
+		grades[spot] = grade;
+	}
+	
+	public double getSum()
+	{
 		double sum=0.0;
 		for(int i=0; i<grades.length; i++){
-			sum+= grades[i];
+			sum+=grades[i];
 		}
 		return sum;
 	}
-
-	public double getAverage(){
-		double average=0.0;
-		
-		average = getSum()/numGrades;
-		
-		return average;
-	}
-
-	//toString method
-	public String toString(){
-		String output = "";
-		
+	
+	public double getLowGrade()
+	{
+		double low = Double.MAX_VALUE;
 		for(int i=0; i<grades.length; i++){
-			output+="grade " + i + ":\t" + grades[i] + "\n";
+			if(grades[i]<low)
+				low = grades[i];
 		}
-		output+="\naverage = " + getAverage() + "\n\n";
-		return output;
+		return low;
 	}
 	
+	public double getHighGrade()
+	{
+		double high = Double.MIN_VALUE;
+		for(int i=0; i<grades.length; i++){
+			if(grades[i]>high)
+				high = grades[i];
+		}
+		return high;
+	}
+	
+	public int getNumGrades()
+	{
+		return grades.length;
+	}
+	
+	public String toString()
+	{
+		String output="";
+		output+=Arrays.toString(grades);
+		/*for(int i=0; i<grades.length; i++){
+			output+=grades[i]+" ";
+		}*/
 
+
+
+		return output;
+	}	
 }
