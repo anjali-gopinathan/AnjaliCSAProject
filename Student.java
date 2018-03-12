@@ -64,7 +64,7 @@ public class Student
 
 	public double getAverageMinusLow()
 	{
-		return getAverage() - getLowGrade();
+		return (getSum() - getLowGrade())/(getNumGrades()-1);
 	}
 	
 	public double getHighGrade()
