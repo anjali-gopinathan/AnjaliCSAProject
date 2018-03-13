@@ -62,11 +62,10 @@ public class Student
 		return getSum()/getNumGrades();
 	}
 
-	public double getAverageMinusLow()
-	{
-		return (getSum() - getLowGrade())/(getNumGrades()-1);
-	}
-	
+ 	public double getAverageMinusLow()
+ 	{	 	
+ 		return (getSum() - getLowGrade())/(getNumGrades()-1);
+ 	}	
 	public double getHighGrade()
 	{
 		return myGrades.getHighGrade();
@@ -76,6 +75,13 @@ public class Student
 	{
 		return myGrades.getLowGrade();	
 	}
+	/*public int compareTo(Student param){
+		if(this.getAverage() > param.getAverage())
+			return 1;
+		else if(this.getAverage() < param.getAverage())
+			return -1;
+		return 0;
+	}*/
 	
 	public String toString()
 	{
