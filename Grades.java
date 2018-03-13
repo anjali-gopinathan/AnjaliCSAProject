@@ -36,7 +36,9 @@ public class Grades
 		grades = vals;
 		check.close();
 	}
-	
+	public double[] getGrades() {
+		return grades;
+	}
 	public void setGrade(int spot, double grade)
 	{
 		grades[spot] = grade;

@@ -51,6 +51,9 @@ public class Student
 	{
 		return myGrades.getNumGrades();
 	}
+	public double[] getGrades() {
+		return myGrades.getGrades();
+	}
 
 	public double getSum()
 	{

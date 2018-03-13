@@ -22,9 +22,8 @@ public class Class
 	
 	public Class(String name, int stuCount)
 	{
-		for(int i=0; i<stuCount; i++){
-			
-		}
+		this.name =name;
+		studentList = new Student[stuCount];
 	
 	}
 	
@@ -41,12 +40,12 @@ public class Class
 	
 	public double getClassAverage()
 	{
-		Student stud = new Student();
-		double classAverage=0.0, classSum=0.0;
+		//Student stud = new Student();
+		double classAverage=0.0;
 		for(int i=0; i<studentList.length; i++){
-			classSum+= stud.getAverage();
+			classAverage+= studentList[i].getAverage();
 		}
-		classAverage = classSum/studentList.length;
+		classAverage/= studentList.length;
 
 		return classAverage;
 	}
@@ -108,17 +107,26 @@ public class Class
 	{
 		String output="";
 
-
-
-
-
+		for(int i=0; i<studentList.length; i++) {
+			if(studentList[i].getAverage()<failingGrade) {	//F
+				output+= studentList[i].getName();
+			}
+		}
+		
 		return output;
 	}
 	
 	public String toString()
 	{
 		String output=""+getClassName()+"\n";
-
+		for(int i=0; i<studentList.length; i++) {
+			output+=studentList[i].getName()+" = ";
+			output+=Arrays.toString(studentList[i].getGrades()) +"\t";
+			/*for(int j=0; j<studentList[i].getNumGrades(); j++) {
+				output+= studentList[i].getGrades()[j];
+			}*/
+			output+= "\t\t" +studentList[i].getAverage()+"\n";
+		}
 
 
 
