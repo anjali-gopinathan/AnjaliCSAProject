@@ -59,7 +59,7 @@ public class Class
 	{
 		int index=0;
 		for(int i=0; i<studentList.length; i++){
-			if(studentList[i].equals(stuName)){
+			if(studentList[i].getName().equals(stuName)){
 				index=i;
 			}
 		}
@@ -103,12 +103,12 @@ public class Class
 		return lName;
 	}
 	
-	public String getFailureList(double failingGrade)
+	public String getFailureList(double failingGrade)			
 	{
 		String output="";
 
 		for(int i=0; i<studentList.length; i++) {
-			if(studentList[i].getAverage()<failingGrade) {	//F
+			if(studentList[i].getAverage()<=failingGrade) {	//F
 				output+= studentList[i].getName();
 			}
 		}
@@ -121,15 +121,17 @@ public class Class
 		String output=""+getClassName()+"\n";
 		for(int i=0; i<studentList.length; i++) {
 			output+=studentList[i].getName()+" = ";
-			output+=Arrays.toString(studentList[i].getGrades()) +"\t";
-			/*for(int j=0; j<studentList[i].getNumGrades(); j++) {
-				output+= studentList[i].getGrades()[j];
-			}*/
-			output+= "\t\t" +studentList[i].getAverage()+"\n";
+			output+=Arrays.toString(studentList[i].getGrades()) +"\t\t\t" +studentList[i].getAverage()+"\n";
 		}
 
 
 
 		return output;
+	}
+
+	public void sort() {
+		// bubblesort
+		
+		
 	}  	
 }

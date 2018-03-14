@@ -18,7 +18,7 @@ public class ClassTester
 		test.addStudent(0,new Student("Jimmy","4 - 100 90 80 60"));
 		test.addStudent(1,new Student("Sandy","4 - 100 100 80 70"));
 		test.addStudent(2,new Student("Fred","4 - 50 50 70 68"));				
-		out.println(test);
+		out.print(test);
 		
 		out.println(String.format(test.getStudentName(0) + "\'s average = %.2f",test.getStudentAverage(0)));	
 		out.println(String.format(test.getStudentName(1) + "\'s average = %.2f",test.getStudentAverage(1)));	
