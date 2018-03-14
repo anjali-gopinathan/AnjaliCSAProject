@@ -131,7 +131,16 @@ public class Class
 
 	public void sort() {
 		// bubblesort
-		
+		for(int i=0; i<studentList.length-1; i++) {
+			for(int j=0; j<studentList.length-i-1; j++) {
+				if(studentList[j].compareTo(studentList[j+1])==1) {
+					//swap
+					Student temp = studentList[j];
+					studentList[j] = studentList[j+1];
+					studentList[j+1]=temp;
+				}
+			}
+		}
 		
 	}  	
 }

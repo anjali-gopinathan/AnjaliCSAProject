@@ -29,6 +29,11 @@ public class GradeBookFileRunner
 
 		test.sort();
 		System.out.println(test);
+		
+		System.out.println("Failure List = " + test.getFailureList(70));
+		System.out.println("Highest Average = " + test.getStudentWithHighestAverage());
+		System.out.println("Lowest Average = " + test.getStudentWithLowestAverage());		
+		System.out.println("Class Average = " + test.getClassAverage());
 
 
 

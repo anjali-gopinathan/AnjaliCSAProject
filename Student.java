@@ -78,13 +78,13 @@ public class Student
 	{
 		return myGrades.getLowGrade();	
 	}
-	/*public int compareTo(Student param){
+	public int compareTo(Student param){
 		if(this.getAverage() > param.getAverage())
 			return 1;
 		else if(this.getAverage() < param.getAverage())
 			return -1;
 		return 0;
-	}*/
+	}
 	
 	public String toString()
 	{
