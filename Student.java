@@ -5,6 +5,7 @@
 //Lab  -
 
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
@@ -51,10 +52,14 @@ public class Student
 	{
 		return myGrades.getNumGrades();
 	}
-	public double[] getGrades() {
+//	public double[] getGrades() {
+//		return myGrades.getGrades();
+//	}
+	public ArrayList<Double> getGrades(){
 		return myGrades.getGrades();
 	}
-
+	
+	
 	public double getSum()
 	{
 		return myGrades.getSum();
