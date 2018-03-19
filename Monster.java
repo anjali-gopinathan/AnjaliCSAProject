@@ -9,36 +9,36 @@ package lab18b;
 import static java.lang.System.*;
 
 public class Monster implements Comparable {
-	private int myWeight;
 	private int myHeight;
+	private int myWeight;
 	private int myAge;
 
 	// write a default Constructor
 	public Monster() {
-		myWeight = 0;
 		myHeight = 0;
+		myWeight = 0;
 		myAge = 0;
 	}
 
 	public Monster(int i) {
 		// TODO Auto-generated constructor stub
-		setWeight(i);
-		setHeight(0);
+		setHeight(i);
+		setWeight(0);
 		setAge(0);
 
 	}
 
 	public Monster(int i, int j) {
 		// TODO Auto-generated constructor stub
-		setWeight(i);
-		setHeight(j);
+		setHeight(i);
+		setWeight(j);
 		setAge(0);
 	}
 
 	public Monster(int i, int j, int k) {
 		// TODO Auto-generated constructor stub
-		setWeight(i);
-		setHeight(j);
+		setHeight(i);
+		setWeight(j);
 		setAge(k);
 	}
 
@@ -49,13 +49,13 @@ public class Monster implements Comparable {
 	// write an initialization constructor with int parameters ht, wt, and age
 
 	// modifiers - write set methods for height, weight, and age
-	public void setWeight(int i) {
+	public void setHeight(int i) {
 		// TODO Auto-generated method stub
-		myWeight = i;
+		myHeight = i;
 	}
 
-	void setHeight(int j) {
-		myHeight = j;
+	void setWeight(int j) {
+		myWeight = j;
 	}
 
 	public void setAge(int k) {
@@ -63,13 +63,13 @@ public class Monster implements Comparable {
 	}
 
 	// accessors - write get methods for height, weight, and age
-	public int getWeight() {
+	public int getHeight() {
 		// TODO Auto-generated method stub
-		return myWeight;
+		return myHeight;
 	}
 
-	public int getHeight() {
-		return myHeight;
+	public int getWeight() {
+		return myWeight;
 	}
 
 	public int getAge() {
@@ -78,11 +78,11 @@ public class Monster implements Comparable {
 
 	// creates a new copy of this Object
 	public Object clone() {
-		return new Monster();
+		return new Monster(myHeight, myWeight, myAge);
 	}
 
 	public boolean equals(Object obj) {
-		if (this.getWeight() == ((Monster) obj).getWeight() && this.getHeight() == ((Monster) obj).getHeight()
+		if (this.getHeight() == ((Monster) obj).getHeight() && this.getWeight() == ((Monster) obj).getWeight()
 				&& this.getAge() == ((Monster) obj).getAge()) {
 			return true;
 		}
@@ -92,18 +92,32 @@ public class Monster implements Comparable {
 
 	public int compareTo(Object obj) {
 //		Monster rhs = (Monster) obj;
-		if (  this.getWeight() >  ((Monster) obj).getWeight()  )
+		if (  this.getHeight() >  ((Monster) obj).getHeight()  )
 			return 1;
-		else if (equals(obj))
-			return 0;
-
+		else if (this.getHeight()<((Monster) obj).getHeight())
+			return -1;
+		else if(this.getHeight()==((Monster)obj).getHeight()){		//if heights are equal check weight
+			if(this.getWeight()>((Monster)obj).getHeight())
+				return 1;
+			else if(this.getWeight()<((Monster)obj).getHeight())
+				return -1;
+			else{													//if heights and weights are equal check age
+				if(this.getAge()>((Monster)obj).getAge())
+					return 1;
+				else if(this.getAge()<((Monster)obj).getAge())
+					return -1;
+				else
+					return 0;
+			}
+		}
+			
 		return -1;
 	}
 
 	// write a toString() method
 	public String toString() {
 //		return getWeight() + " " + getHeight() + " " + getAge()+"\n";
-		return ""+myWeight +" "+ myHeight+" "+myAge;
+		return ""+myHeight +" "+ myWeight+" "+myAge;
 	}
 
 }
