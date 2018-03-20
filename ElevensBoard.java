@@ -101,7 +101,7 @@ public class ElevensBoard extends Board {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 //		int numFaces=0;
 //		for(int i=0; i<selectedCards.size(); i++){
-//			if(selectedCards.get(i).rank == "jack" || selectedCards.get(i).rank == "queen" || selectedCards.get(i).rank=="king")
+//			if(selectedCards.get(i).rank() == "jack" || selectedCards.get(i).rank() == "queen" || selectedCards.get(i).rank()=="king")
 //				numFaces++;
 //		}
 //		if(numFaces==3)//if the selected cards are a group of the three cards jack, queen, king in any order
