@@ -95,9 +95,9 @@ public class Deck {
 		shuffled = cards;
 		int j=0;
 		for(int k=0; k<52; k++){
-			while(cards.length !=0){
+			//while(cards.length !=0){
 				j=(int) Math.random() * 52;
-			}
+			//}
 			shuffled[k] = cards[j];
 			cards[j] = null;
 		}

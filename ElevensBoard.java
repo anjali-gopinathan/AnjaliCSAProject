@@ -73,7 +73,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		return false;
+		return isLegal(cardIndexes());
 	}
 
 	/**
@@ -86,6 +86,13 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		int sum=0;
+		if(selectedCards.size()==2){
+			for(int i=0; i<selectedCards.size(); i++){
+				sum+= POINT_VALUES[selectedCards.get(i)];
+			}
+		}
+		if(sum==11) return true;
 		return false;
 	}
 
@@ -99,13 +106,13 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-//		int numFaces=0;
-//		for(int i=0; i<selectedCards.size(); i++){
-//			if(selectedCards.get(i).rank() == "jack" || selectedCards.get(i).rank() == "queen" || selectedCards.get(i).rank()=="king")
-//				numFaces++;
-//		}
-//		if(numFaces==3)//if the selected cards are a group of the three cards jack, queen, king in any order
-//			return true;
+		int numFaces=0;
+		for(int i=0; i<selectedCards.size(); i++){
+			if(selectedCards.get(i)>=10 && selectedCards.get(i)<=12)
+				numFaces++;
+		}
+		if(numFaces==3)//if the selected cards are a group of the three cards jack, queen, king in any order
+			return true;
 		return false;
 	}
 }
