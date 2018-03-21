@@ -92,8 +92,9 @@ public class ElevensBoard extends Board {
 				sum+= POINT_VALUES[selectedCards.get(i)];
 			}
 		}
-		if(sum==11) return true;
-		return false;
+		return (sum==11);
+		//if(sum==11) return true;
+		//return false;
 	}
 
 	/**
