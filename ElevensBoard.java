@@ -54,11 +54,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		if(selectedCards.size() == 2)	//if a pair of non-face cards' values add to 11
-			return containsPairSum11(selectedCards);
-		if(selectedCards.size()== 3)
-			return containsJQK(selectedCards);
-		return false;
+		return containsPairSum11(selectedCards) || containsJQK(selectedCards);
 		
 	}
 
@@ -86,15 +82,19 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		int sum=0;
-		if(selectedCards.size()==2){
-			for(int i=0; i<selectedCards.size(); i++){
-				sum+= POINT_VALUES[selectedCards.get(i)];
+		if (selectedCards.size() < 2)
+		{
+			return false;
+		}
+		for(int i=0; i<selectedCards.size(); i++){
+			for(int j = 0; j < selectedCards.size(); j++){
+				if(cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(j)).pointValue() == 11){
+					return true;
+				}
 			}
 		}
-		return (sum==11);
-		//if(sum==11) return true;
-		//return false;
+		return false;
+		//		if(sum==11) return true;
 	}
 
 	/**
@@ -107,13 +107,18 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		int numFaces=0;
-		for(int i=0; i<selectedCards.size(); i++){
-			if(selectedCards.get(i)>=10 && selectedCards.get(i)<=12)
-				numFaces++;
+		if (selectedCards.size() < 3){
+			return false;
 		}
-		if(numFaces==3)//if the selected cards are a group of the three cards jack, queen, king in any order
-			return true;
-		return false;
+		boolean isJack=false, isQueen=false, isKing = false;
+		for(int i=0; i<selectedCards.size(); i++){
+			if(cardAt(selectedCards.get(i)).rank().equals("jack"))
+				isJack = true;
+			if(cardAt(selectedCards.get(i)).rank().equals("queen"))
+				isQueen = true;
+			if(cardAt(selectedCards.get(i)).rank().equals("king"))
+				isKing = true;
+		}
+		return isJack && isQueen && isKing;//if the selected cards are a group of the three cards jack, queen, king in any order
 	}
 }
