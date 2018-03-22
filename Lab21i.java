@@ -13,5 +13,13 @@ public class Lab21i
 {
 	public static void main( String args[] ) throws IOException
 	{
+		Scanner file = new Scanner(new File("H:\\APCSA\\Unit14\\Unit14-Assignments\\lab21i.dat"));
+		
+		while(file.hasNext()){
+			int len = file.nextInt();
+			int[][] maze = new int[len][len];
+			Maze test = new Maze();
+			System.out.println(test);
+		}
 	}
 }
