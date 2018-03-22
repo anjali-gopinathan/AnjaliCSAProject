@@ -11,7 +11,8 @@ public class Lab21g
 	public static void main(String args[])
 	{
 		//instantiate an AtCounter
-
-		//test the code
+		AtCounter ats = new AtCounter();
+		ats.countAts(0,0);
+		System.out.println(ats);
 	}
 }

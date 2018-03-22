@@ -10,28 +10,43 @@ public class AtCounter
 {
    private char[][] atMat;
    private int atCount;
-
-	public AtCounter()
-	{
+   private boolean[][] visited;
+   public AtCounter()
+   {
 		atCount=0;
-		atMat = new char[][]{{'@','-','@','-','-','@','-','@','@','@'},
-									{'@','@','@','-','@','@','-','@','-','@'},
-									{'-','-','-','-','-','-','-','@','@','@'},
-									{'-','@','@','@','@','@','-','@','-','@'},
-									{'-','@','-','@','-','@','-','@','-','@'},
-									{'@','@','@','@','@','@','-','@','@','@'},
-									{'-','@','-','@','-','@','-','-','-','@'},
-									{'-','@','@','@','-','@','-','-','-','-'},
-									{'-','@','-','@','-','@','-','@','@','@'},
-									{'-','@','@','@','@','@','-','@','@','@'}};
+		atMat = new char[][]{	{'@','-','@','-','-','@','-','@','@','@'},
+								{'@','@','@','-','@','@','-','@','-','@'},
+								{'-','-','-','-','-','-','-','@','@','@'},
+								{'-','@','@','@','@','@','-','@','-','@'},
+								{'-','@','-','@','-','@','-','@','-','@'},
+								{'@','@','@','@','@','@','-','@','@','@'},
+								{'-','@','-','@','-','@','-','-','-','@'},
+								{'-','@','@','@','-','@','-','-','-','-'},
+								{'-','@','-','@','-','@','-','@','@','@'},
+								{'-','@','@','@','@','@','-','@','@','@'}};
+		visited = new boolean[atMat.length][atMat[0].length];
+		for(int r=0; r<atMat.length; r++){
+			for(int c=0; c<atMat[0].length; c++){
+				visited[r][c] = false;
+			}
+		}
 	}
 
 	public int countAts(int r, int c)
 	{
-
 		//add in recursive code to count up the # of @s connected
 		//start checking at spot [r,c]
-
+		if(r>=0 && c>=0 && r< atMat.length && c<atMat[0].length			//check if r and c are in bounds
+				&& atMat[r][c]=='@'										//check if current spot is a @
+				&& !visited[r][c]	){										//check if spot hasn't been checked yet
+			
+			atCount++;
+			visited[r][c] = true;
+			countAts(r+1,c);
+			countAts(r-1,c);
+			countAts(r,c+1);
+			countAts(r,c-1);
+		}
 
 		return 0;
 	}
