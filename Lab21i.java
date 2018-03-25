@@ -19,6 +19,7 @@ public class Lab21i
 			int len = file.nextInt();
 			int[][] maze = new int[len][len];
 			Maze test = new Maze();
+			test.hasExitPath(0, 0);
 			System.out.println(test);
 		}
 	}
