@@ -16,17 +16,23 @@ public class FancyWords
 	public FancyWords(String sentence)
 	{
 		wordRay = sentence.split(" ");
-		//setWords(sentence);
+//		setWords(sentence);
 	}
 
 	public void setWords(String sentence)
 	{
 //		Scanner read = new Scanner(sentence);
+//		int len=0;
+//		while(read.hasNext()) {
+//			len++;
+//		}
+//		wordRay = new String[len];
 //		int i=0;
 //		while(read.hasNext()) {
 //			wordRay[i] = read.next();
 //			i++;
 //		}
+//		read.close();
 	}
 
 	public String toString()
@@ -57,7 +63,6 @@ public class FancyWords
 			}
 			output+="\n";
 		}
-		
 		
 		return output+"\n\n";
 	}
