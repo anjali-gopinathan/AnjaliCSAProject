@@ -2,7 +2,7 @@
 //Name -
 //Date -
 //Class - 
-//Lab  - 
+//Lab  - QuickSort
 
 public class Lab22f
 {

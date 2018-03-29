@@ -2,7 +2,7 @@
 //Name -
 //Date -
 //Class - 
-//Lab  - 
+//Lab  - Lab22f
 
 import static java.lang.System.*;
 import java.util.Arrays;		//use Arrays.toString() to help print out the array
@@ -13,7 +13,7 @@ public class QuickSort
 
 	public static void quickSort(Comparable[] list)
 	{
-
+		
 
 
 
@@ -22,19 +22,23 @@ public class QuickSort
 
 	private static void quickSort(Comparable[] list, int low, int high)
 	{
-
-
-
-
-
-
-
+		while(low<high) {
+			int split = partition(list, low, high);
+			quickSort(list, low, split);
+			quickSort(list, split+1, high);
+		}
 	}
 
 
 	private static int partition(Comparable[] list, int low, int high)
 	{
-
+		Comparable pivot = list[0];
+		int bot = low-1;
+		int top = high+1;
+		
+		while(bot<top) {
+			//while();
+		}
 
 
 
