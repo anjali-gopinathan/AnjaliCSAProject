@@ -79,11 +79,11 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[2] == true)
 		{
-
+			rightPaddle.moveUpAndDraw(window);
 		}
 		if(keys[3] == true)
 		{
-
+			rightPaddle.moveDownAndDraw(window);
 		}
 	}
 
@@ -120,11 +120,13 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
    	{
    		while(true)
    		{
-   		   Thread.currentThread().sleep(8);
-            repaint();
+   		   Thread.currentThread();
+   		   Thread.sleep(8);
+   		   repaint();
          }
       }catch(Exception e)
       {
+    	  System.out.println("Error running PaddleTestTwo.java");
       }
   	}		
 }
