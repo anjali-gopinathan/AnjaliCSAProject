@@ -38,30 +38,33 @@ public class Paddle extends Block
 	}
 
 	public void moveUpAndDraw(Graphics window) {
-		Color temp = getColor();
-		   
+//		Color temp = getColor();
+		  setColor(Color.WHITE); 
 		//draw a white ball at old ball location
-		draw(window, Color.WHITE);
-		   
-		//set new
-		setY(getY()+speed);
-
-		//draw the ball at its new location
-		draw(window, temp);
-
-   }
-
-   public void moveDownAndDraw(Graphics window) {
-		Color temp = getColor();
-		   
-		//draw a white ball at old ball location
-		draw(window, Color.WHITE);
+		draw(window, getColor());
 		   
 		//set new
 		setY(getY()-speed);
 
+		setColor(Color.BLACK);
 		//draw the ball at its new location
-		draw(window, temp);
+		draw(window, getColor());
+
+   }
+
+   public void moveDownAndDraw(Graphics window) {
+//		Color temp = getColor();
+		   
+		//draw a white ball at old ball location
+		setColor(Color.WHITE);
+		
+		draw(window, getColor());
+		   
+		//set new
+		setY(getY()+speed);
+		setColor(Color.BLACK);
+		//draw the ball at its new location
+		draw(window, getColor());
    }
    public boolean equals(Object obj) {
 	   Paddle pad = (Paddle) obj;

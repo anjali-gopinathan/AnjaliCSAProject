@@ -39,7 +39,7 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 
 		//set up the Canvas
-		setBackground(Color.GREEN);
+		setBackground(Color.white);
 		setVisible(true);
 
 		this.addKeyListener(this);

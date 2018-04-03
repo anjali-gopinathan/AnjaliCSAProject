@@ -49,15 +49,18 @@ public class Ball extends Block
    public void moveAndDraw(Graphics window)
    {
 	   Color temp = getColor();
-	   
+	   System.out.println(temp);
 	   //draw a white ball at old ball location
-	   draw(window, Color.WHITE);
+	   setColor(Color.WHITE);
+	   draw(window, getColor());
 	   
 	   //set new positions
 	   setPos(getX()+xSpeed, getY()+ySpeed);
 
 	   //draw the ball at its new location
-	   draw(window, temp);
+	   setColor(Color.BLACK);
+	   
+	   draw(window, getColor());
 	   
    }
    
@@ -82,4 +85,5 @@ public class Ball extends Block
 	public String toString() {
 		return getX() + " " + getY() + " " + getWidth() + " " + getHeight() + " " + getColor()+"\t"+xSpeed + " " + ySpeed;
 	}
+
 }
