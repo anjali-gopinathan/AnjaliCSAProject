@@ -6,46 +6,40 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+//import java.awt.Graphics2D;
 import java.awt.Canvas;
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
-import java.awt.image.BufferedImage;
-import java.awt.event.ActionListener;
+//import java.awt.image.BufferedImage;
+//import java.awt.event.ActionListener;
 
 public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 {
+
+	private static final long serialVersionUID = 1L;
 	private Ball ball;
-	private Paddle leftPaddle;
+	private Paddle leftPaddle, rightPaddle;
 	private boolean[] keys;		//keeps track of what keys are pressed
 
 	public PaddleTestTwo()
 	{
-		//set up all game variables
-
-
+	
 		//instantiate a Ball
-		
-		
-		
+		ball = new Ball();
+				
 		//instantiate a left Paddle
-		
-		
-		
+		leftPaddle = new Paddle ( 10,250,10,50,4);
 		
 		//instantiate a right Paddle
+		rightPaddle = new Paddle(760,250,10,50,4);
 		
-		
-		
-
-
 		keys = new boolean[5];
 
 
 		//set up the Canvas
-		setBackground(Color.WHITE);
+		setBackground(Color.GREEN);
 		setVisible(true);
 
 		this.addKeyListener(this);
@@ -64,12 +58,12 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 		if(!(ball.getX()>=10 && ball.getX()<=550))
 		{
-			ball.setXSpeed(-ball.getXSpeed());
+			ball.setXVel(-ball.getXVel());
 		}
 
 		if(!(ball.getY()>=10 && ball.getY()<=450))
 		{
-			ball.setYSpeed(-ball.getYSpeed());
+			ball.setYVel(-ball.getYVel());
 		}
 
 		if(keys[0] == true)
@@ -80,7 +74,7 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		if(keys[1] == true)
 		{
 			//move left paddle down and draw it on the window
-
+			leftPaddle.moveDownAndDraw(window);
 
 		}
 		if(keys[2] == true)

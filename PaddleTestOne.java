@@ -11,6 +11,7 @@ class PaddleTestOne
 {
 	public static void main( String args[] )
 	{
+		System.out.println("PaddleTestOne");
 		Paddle one = new Paddle();
 		out.println(one);
 		

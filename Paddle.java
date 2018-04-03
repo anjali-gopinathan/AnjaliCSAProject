@@ -37,18 +37,38 @@ public class Paddle extends Block
 		speed = spd;
 	}
 
-	public void moveUpAndDraw(Graphics window)
-   {
+	public void moveUpAndDraw(Graphics window) {
+		Color temp = getColor();
+		   
+		//draw a white ball at old ball location
+		draw(window, Color.WHITE);
+		   
+		//set new
+		setY(getY()+speed);
 
+		//draw the ball at its new location
+		draw(window, temp);
 
    }
 
-   public void moveDownAndDraw(Graphics window)
-   {
+   public void moveDownAndDraw(Graphics window) {
+		Color temp = getColor();
+		   
+		//draw a white ball at old ball location
+		draw(window, Color.WHITE);
+		   
+		//set new
+		setY(getY()-speed);
 
-
+		//draw the ball at its new location
+		draw(window, temp);
    }
-
+   public boolean equals(Object obj) {
+	   Paddle pad = (Paddle) obj;
+	   return super.equals(pad)
+			   && this.getSpeed() == pad.getSpeed();
+   }
+   
    //add get methods
    public int getSpeed() {
 	   return speed;
