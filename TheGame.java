@@ -28,5 +28,6 @@ public class TheGame extends JFrame
 	public static void main( String args[] )
 	{
 		TheGame run = new TheGame();
+		run.repaint();
 	}
 }
