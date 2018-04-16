@@ -35,9 +35,9 @@ public class IntArrayWorker
   public int getTotalNested()
   {
     int total = 0;
-    for (int[] rowArray : matrix)
+    for (int[] rowArray : matrix)		//loop through outer array (each of the rows)
     {
-      for (int item : rowArray)
+      for (int item : rowArray)			//loop through inner array (columns in that row)
       {
         total = total + item;
       }
@@ -61,6 +61,7 @@ public class IntArrayWorker
       }
     }
   }
+
   
   /**
    * print the values in the array in rows and columns
@@ -97,6 +98,39 @@ public class IntArrayWorker
           matrix[row][col] = 3;
       }
     }
+  }
+  //returns # of times a passed integer value is found in the matrix
+  public int getCount(int val){
+	  int count=0;
+	  for(int r = 0; r<matrix.length; r++){
+		  for(int c=0; c<matrix[0].length; c++){
+			  if(matrix[r][c]==val){
+				  count++;
+			  }
+		  }
+	  }
+	  return count;
+  }
+  //returns largest value in the matrix
+  public int getLargest(){
+	  int largest=0;
+	  for(int r=0; r<matrix.length; r++){
+		  for(int c=0; c<matrix[0].length; c++){
+			  if(matrix[r][c]>largest){
+				  largest = matrix[r][c];
+			  }
+		  }
+	  }
+	  return largest;
+  }
+  
+  //returns total of all integers in specified column
+  public int getColTotal(int col){
+	  int colTotal=0;
+	  for(int r=0; r<matrix.length; r++){
+		  colTotal+= matrix[r][col];
+	  }
+	  return colTotal;
   }
  
 }
