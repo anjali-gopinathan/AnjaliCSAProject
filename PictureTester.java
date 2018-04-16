@@ -56,13 +56,12 @@ public class PictureTester
   public static void main(String[] args)
   {
     // uncomment a call here to run a test
-    // and comment out the ones you don't want
-    // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
+    // and comment out the ones you don't want to run
+//    testZeroBlue();		//done
+//    testKeepOnlyBlue();	//done
+//    testKeepOnlyRed();	//done
+//    testKeepOnlyGreen();	//done
+    testNegate();			//done
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
@@ -81,4 +80,34 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
   }
+  private static void testNegate() {
+	// TODO Auto-generated method stub
+	Picture koala = new Picture("koala.jpg");
+	koala.explore();
+	koala.negate();
+	koala.explore();
+  }
+
+public static void testKeepOnlyBlue() {
+	// TODO Auto-generated method stub
+	Picture koala = new Picture("koala.jpg");
+	koala.explore();
+	koala.keepOnlyBlue();
+	koala.explore();
+	
+  }
+
+public static void testKeepOnlyRed()  {
+    Picture koala = new Picture("koala.jpg");
+    koala.explore();
+    koala.keepOnlyRed();
+    koala.explore();
+  }
+public static void testKeepOnlyGreen()  {
+    Picture koala = new Picture("koala.jpg");
+    koala.explore();
+    koala.keepOnlyGreen();
+    koala.explore();
+  }
+
 }

@@ -220,6 +220,7 @@ public class Picture extends SimplePicture
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
+  
   public static void main(String[] args) 
   {
     Picture beach = new Picture("beach.jpg");
@@ -227,5 +228,59 @@ public class Picture extends SimplePicture
     beach.zeroBlue();
     beach.explore();
   }
+	
+  public void keepOnlyRed() {
+	    Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	        pixelObj.setBlue(0);
+	        pixelObj.setGreen(0);
+	      }
+	    }
+  }
+	
+  public void keepOnlyBlue() {
+	  // TODO Auto-generated method stub
+	    Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	        pixelObj.setRed(0);
+	        pixelObj.setGreen(0);
+	      }
+	    }
+  }
+	
+	public void keepOnlyGreen() {
+		// TODO Auto-generated method stub
+	    Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	        pixelObj.setRed(0);
+	        pixelObj.setBlue(0);
+	      }
+	    }
+	}
+
+	public void negate() {
+		// TODO Auto-generated method stub
+	    Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	        pixelObj.setRed(255 - pixelObj.getRed());
+	        pixelObj.setBlue(255 - pixelObj.getBlue());
+	        pixelObj.setGreen(255 - pixelObj.getGreen());
+
+	      }
+	    }
+	}
+
   
-} // this } is the end of class Picture, put all new methods before this
+} // this brace is the end of class Picture, put all new methods before this
