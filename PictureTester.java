@@ -61,53 +61,93 @@ public class PictureTester
 //    testKeepOnlyBlue();	//done
 //    testKeepOnlyRed();	//done
 //    testKeepOnlyGreen();	//done
-    testNegate();			//done
-    //testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
+//    testNegate();			//done
+//    testGrayscale();		//error!!!!
+//    testFixUnderwater();	//done
+//    testMirrorVertical();	//welp it was already done
+//    testMirrorTemple();	//uh it was already done
+//    testMirrorArms();		//done
+//    testMirrorGull();		//done
+//    testMirrorDiagonal();	//done
+//    testCollage();		//already done
+//    testCopy();				//done
+//    testEdgeDetection();	//dunzo
+    
+/*  don't do these:
+  	//testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+    //testGetAverageForColumn(0);*/
   }
+  private static void testCopy() {
+	// TODO Auto-generated method stub
+	Picture snowman = new Picture("snowman.jpg");
+	snowman.explore();
+	snowman.copy(snowman, 119, 170);
+	snowman.explore();
+  }
+
+  private static void testMirrorDiagonal() {
+	Picture koala = new Picture("koala.jpg");
+	koala.explore();
+	koala.mirrorDiagonal();
+	koala.explore();
+  }
+  
+  private static void testMirrorGull() {
+	  Picture seagull = new Picture("seagull.jpg");
+	  seagull.explore();
+	  seagull.mirrorGull();
+	  seagull.explore();
+  }
+
+  private static void testMirrorArms() {
+	  Picture snowman = new Picture ("snowman.jpg");
+	  snowman.explore();
+	  snowman.mirrorArms();
+	  snowman.explore();  
+  }
+
   private static void testNegate() {
-	// TODO Auto-generated method stub
-	Picture koala = new Picture("koala.jpg");
-	koala.explore();
-	koala.negate();
-	koala.explore();
+	  Picture koala = new Picture("koala.jpg");
+	  koala.explore();
+	  koala.negate();
+	  koala.explore();
   }
-
-public static void testKeepOnlyBlue() {
-	// TODO Auto-generated method stub
-	Picture koala = new Picture("koala.jpg");
-	koala.explore();
-	koala.keepOnlyBlue();
-	koala.explore();
 	
+  public static void testKeepOnlyBlue() {
+	  Picture koala = new Picture("koala.jpg");
+	  koala.explore();
+	  koala.keepOnlyBlue();
+	  koala.explore();	
   }
-
-public static void testKeepOnlyRed()  {
-    Picture koala = new Picture("koala.jpg");
-    koala.explore();
-    koala.keepOnlyRed();
-    koala.explore();
+	
+  public static void testKeepOnlyRed()  {
+	  Picture koala = new Picture("koala.jpg");
+	  koala.explore();
+	  koala.keepOnlyRed();
+	  koala.explore();
   }
-public static void testKeepOnlyGreen()  {
-    Picture koala = new Picture("koala.jpg");
-    koala.explore();
-    koala.keepOnlyGreen();
-    koala.explore();
+  public static void testKeepOnlyGreen()  {
+	  Picture koala = new Picture("koala.jpg");
+	  koala.explore();
+	  koala.keepOnlyGreen();
+	  koala.explore();
+  }
+  public static void testGrayscale(){
+	  Picture kitten2 = new Picture("kitten2.jpg");
+	  kitten2.explore();
+	  kitten2.grayscale();
+	  kitten2.explore();
+  }
+  public static void testFixUnderwater(){
+	  Picture water = new Picture("water.jpg");
+	  water.explore();
+	  water.fixUnderwater();
+	  water.explore();
   }
 
 }
