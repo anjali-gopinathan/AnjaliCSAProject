@@ -11,72 +11,61 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 
-public class Ship extends MovingThing
-{
+public class Ship extends MovingThing {
 	private int speed;
 	private Image image;
 
-	public Ship()
-	{
+	public Ship() {
 		this(10,10,10,10,10);
 	}
 
-	public Ship(int x, int y)
-	{
+	public Ship(int x, int y) {
 	   super(x,y);
 	}
 
-	public Ship(int x, int y, int s)
-	{
+	public Ship(int x, int y, int s) {
 		super(x,y);
 		speed = s;
 	}
 
-	public Ship(int x, int y, int w, int h, int s)
-	{
+	public Ship(int x, int y, int w, int h, int s) {
 		super(x, y, w, h);
 		speed=s;
-		try
-		{
-			URL url = getClass().getResource("/images/ship.jpg");
-			image = ImageIO.read(url);
+		try {
+			image = ImageIO.read(new File("./images/ship.jpg"));
 		}
 		catch(Exception e) {
+			System.out.println("problem reading ship image");
 			e.printStackTrace();
 		}
 	}
 
 
-	public void setSpeed(int s)
-	{
+	public void setSpeed(int s) {
 	   speed = s;
 	}
 
-	public int getSpeed()
-	{
+	public int getSpeed() {
 	   return speed;
 	}
 
-	public void move(String direction)
-	{
-		if(direction.equals("up"))
+	public void move(String direction) {
+		if(direction.equals("UP"))
 			setY(getY() - getSpeed());
-		else if(direction.equals("down"))
+		else if(direction.equals("DOWN"))
 			setY(getY() + getSpeed());
-		else if(direction.equals("right"))
+		else if(direction.equals("RIGHT"))
 			setX(getX()+getSpeed());
-		else
+		else if(direction.equals("LEFT"))
 			setX(getX()-getSpeed());
 		
 	}
 
-	public void draw( Graphics window )
-	{
+	public void draw( Graphics window ) {
 		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
-	public String toString()
-	{
-		return super.toString() + getSpeed();
+	public String toString() {
+		return super.toString() +" "+ getSpeed();
 	}
 }
