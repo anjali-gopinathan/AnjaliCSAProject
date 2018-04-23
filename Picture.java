@@ -15,16 +15,11 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  */
 public class Picture extends SimplePicture 
 {
-  ///////////////////// constructors //////////////////////////////////
-  /**
-   * Constructor that takes no arguments 
-   */
+
   public Picture ()
   {
-    /* not needed but use it to show students the implicit call to super()
-     * child constructors always call a parent constructor 
-     */
-    super();  
+	  super();  
+
   }
   
   /**
@@ -33,8 +28,8 @@ public class Picture extends SimplePicture
    */
   public Picture(String fileName)
   {
-    // let the parent class handle this fileName
     super(fileName);
+    System.out.println("Anjali Gopinathan\nAPCSA period 2\n4/24/18\nComputer 23");
   }
   
   /**
@@ -44,8 +39,7 @@ public class Picture extends SimplePicture
    */
   public Picture(int height, int width)
   {
-    // let the parent class handle this width and height
-    super(width,height);
+    super(width, height);
   }
   
   /**
@@ -55,7 +49,6 @@ public class Picture extends SimplePicture
    */
   public Picture(Picture copyPicture)
   {
-    // let the parent class do the copy
     super(copyPicture);
   }
   
@@ -69,8 +62,7 @@ public class Picture extends SimplePicture
   }
   
   ////////////////////// methods ///////////////////////////////////////
-  
-  /**
+   /**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
    * height and width.
@@ -81,8 +73,7 @@ public class Picture extends SimplePicture
       " height " + getHeight() 
       + " width " + getWidth();
     return output;
-    
-  }
+   }
   
   /** Method to set the blue to 0 */
   public void zeroBlue()
@@ -341,8 +332,8 @@ public class Picture extends SimplePicture
 
 	public void mirrorGull() {
 	    int mirrorPoint = 354;
-	    Pixel leftPixel = null;
-	    Pixel rightPixel = null;
+	    Pixel leftPixel;
+	    Pixel rightPixel;
 	    int count = 0;
 	    Pixel[][] pixels = this.getPixels2D();
 	    
@@ -354,8 +345,7 @@ public class Picture extends SimplePicture
 	      {
 	        
 	        leftPixel = pixels[row][col];      
-	        rightPixel = pixels[row]                       
-	                         [mirrorPoint - col + mirrorPoint];
+	        rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
 	        rightPixel.setColor(leftPixel.getColor());
 	      }
 	    }

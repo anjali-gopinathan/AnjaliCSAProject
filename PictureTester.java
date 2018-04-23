@@ -61,7 +61,7 @@ public class PictureTester
 //    testKeepOnlyBlue();	//done
 //    testKeepOnlyRed();	//done
 //    testKeepOnlyGreen();	//done
-//    testNegate();			//done
+    testNegate();			//done
 //    testGrayscale();		//error!!!!
 //    testFixUnderwater();	//done
 //    testMirrorVertical();	//welp it was already done
