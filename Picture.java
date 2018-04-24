@@ -74,6 +74,50 @@ public class Picture extends SimplePicture
       + " width " + getWidth();
     return output;
    }
+  //LAB ASSESSMENT 4/24/2018
+  public void blur(int x, int y, int w, int h){
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(int r=y; r<y+h; r++){
+		  for(int c=x; c<x+w; c++){	//for every pixel in rectangle
+			  Pixel pixelObj = pixels[r][c];
+			  int avgRed = ((
+			  		  pixels[r-1][c-1].getRed() 
+			  		+ pixels[r-1][c  ].getRed()
+			  		+ pixels[r-1][c+1].getRed()
+			  		+ pixels[r  ][c-1].getRed() 
+			  		+ pixels[r  ][c+1].getRed()
+			  		+ pixels[r+1][c-1].getRed()
+			  		+ pixels[r+1][c  ].getRed() 
+			  		+ pixels[r+1][c+1].getRed()
+			  		)/8);
+			  int avgGreen = ((
+			  		  pixels[r-1][c-1].getGreen() 
+			  		+ pixels[r-1][c  ].getGreen()
+			  		+ pixels[r-1][c+1].getGreen()
+			  		+ pixels[r  ][c-1].getGreen() 
+			  		+ pixels[r  ][c+1].getGreen()
+			  		+ pixels[r+1][c-1].getGreen()
+			  		+ pixels[r+1][c  ].getGreen() 
+			  		+ pixels[r+1][c+1].getGreen()
+			  		)/8);
+			  int avgBlue = ((
+			  		  pixels[r-1][c-1].getBlue() 
+			  		+ pixels[r-1][c  ].getBlue()
+			  		+ pixels[r-1][c+1].getBlue()
+			  		+ pixels[r  ][c-1].getBlue() 
+			  		+ pixels[r  ][c+1].getBlue()
+			  		+ pixels[r+1][c-1].getBlue()
+			  		+ pixels[r+1][c  ].getBlue() 
+			  		+ pixels[r+1][c+1].getBlue()
+			  		)/8);
+			  pixelObj.setRed(avgRed);
+			  pixelObj.setGreen(avgGreen);
+			  pixelObj.setBlue(avgBlue);
+		  }
+	  }
+  }
+  
+  
   
   /** Method to set the blue to 0 */
   public void zeroBlue()

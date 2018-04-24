@@ -57,11 +57,12 @@ public class PictureTester
   {
     // uncomment a call here to run a test
     // and comment out the ones you don't want to run
-//    testZeroBlue();		//done
+	  testBlur(160, 190, 80, 80, 10);		//labAssessment 4/24/18
+	  //    testZeroBlue();		//done
 //    testKeepOnlyBlue();	//done
 //    testKeepOnlyRed();	//done
 //    testKeepOnlyGreen();	//done
-    testNegate();			//done
+//    testNegate();			//done
 //    testGrayscale();		//error!!!!
 //    testFixUnderwater();	//done
 //    testMirrorVertical();	//welp it was already done
@@ -82,7 +83,18 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);*/
   }
-  private static void testCopy() {
+  private static void testBlur(int x, int y, int w, int h, int n) {
+	  Picture redMoto = new Picture("redMotorcycle.jpg");
+	  redMoto.explore();
+	  for(int i=0; i<n; i++){
+		  redMoto.blur(x,y,w,h);
+	  }
+	  redMoto.explore();
+	  
+	  
+  }
+
+private static void testCopy() {
 	// TODO Auto-generated method stub
 	Picture snowman = new Picture("snowman.jpg");
 	snowman.explore();
