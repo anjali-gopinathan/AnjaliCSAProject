@@ -9,8 +9,8 @@ import java.awt.Component;
 
 public class StarFighter extends JFrame
 {
-	private static final int WIDTH = 800;
-	private static final int HEIGHT = 600;
+	static final int WIDTH = 800;
+	static final int HEIGHT = 600;
 
 	public StarFighter()
 	{
@@ -28,6 +28,5 @@ public class StarFighter extends JFrame
 	public static void main( String args[] )
 	{
 		StarFighter run = new StarFighter();
-//		MovingThing mt = new MovingThing(10,10);
 	}
 }

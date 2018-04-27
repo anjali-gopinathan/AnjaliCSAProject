@@ -83,7 +83,12 @@ public abstract class MovingThing implements Moveable
 	{
 		return height;
 	}
-
+	public boolean isCollide(MovingThing mt) {
+		if(this.getY() == mt.getY() && this.getX() == mt.getX())
+			return true;
+		
+		return false;
+	}
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);
 

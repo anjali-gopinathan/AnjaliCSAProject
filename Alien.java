@@ -16,7 +16,7 @@ public class Alien extends MovingThing {
 	private Image image;
 
 	public Alien() {
-		this(0,0,30,30,0);
+		this(50,50,30,30,0);
 	}
 
 	public Alien(int x, int y) {
@@ -49,6 +49,7 @@ public class Alien extends MovingThing {
 	}
 
 	public void move(String direction) {
+		//System.out.println("moved");
 		if(direction.equals("UP"))
 			setY(getY() - getSpeed());
 		else if(direction.equals("DOWN"))
@@ -61,7 +62,7 @@ public class Alien extends MovingThing {
 	}
 
 	public void draw( Graphics window ) {
-   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
+		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
 	public String toString() {

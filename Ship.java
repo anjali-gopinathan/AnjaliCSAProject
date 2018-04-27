@@ -40,7 +40,6 @@ public class Ship extends MovingThing {
 		}
 	}
 
-
 	public void setSpeed(int s) {
 	   speed = s;
 	}
