@@ -64,12 +64,12 @@ class BallTestTwo extends Canvas implements Runnable
 
 		if(!(ball.getX()>=10 && ball.getX()<=550))
 		{
-			ball.setXVel(-ball.getXVel());
+			ball.setXSpeed(-ball.getXSpeed());
 		}
 
 		if(!(ball.getY()>=10 && ball.getY()<=450))
 		{
-			ball.setYVel(-ball.getYVel());
+			ball.setYSpeed(-ball.getYSpeed());
 		}
 	}
 	

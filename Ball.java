@@ -14,35 +14,35 @@ public class Ball extends Block
 
 	public Ball() {
 		super(200,200);			//super(xPos, yPos)
-		setXVel(3);
-		setYVel(1);
+		setXSpeed(3);
+		setYSpeed(1);
 	}
 	public Ball(int xPos, int yPos) {
 		super(xPos, yPos);
-		setXVel(3);
-		setYVel(1);
+		setXSpeed(3);
+		setYSpeed(1);
 	}
 	public Ball(int xPos, int yPos, int wid, int heit) {
 		super(xPos, yPos, wid, heit);
-		setXVel(3);
-		setYVel(1);
+		setXSpeed(3);
+		setYSpeed(1);
 	}
 	public Ball(int xPos, int yPos, int wid, int heit, Color col) {
 		super(xPos, yPos, wid, heit, col);
-		setXVel(3);
-		setYVel(1);
+		setXSpeed(3);
+		setYSpeed(1);
 	}
 	public Ball(int xPos, int yPos, int wid, int heit, Color col, int xVel, int yVel) {
 		super(xPos, yPos, wid, heit, col);
 
-		setXVel(xVel);
-		setYVel(yVel);
+		setXSpeed(xVel);
+		setYSpeed(yVel);
 	}
    //add the set methods
-   public void setXVel(int xVel) {
+   public void setXSpeed(int xVel) {
 	   xSpeed = xVel;
    }
-   public void setYVel(int yVel) {
+   public void setYSpeed(int yVel) {
 	   ySpeed = yVel;
    }
 
@@ -69,16 +69,16 @@ public class Ball extends Block
 		Ball pelota = (Ball) obj;
 
 		return super.equals(pelota)
-			&& xSpeed == pelota.getXVel() 
-			&& ySpeed == pelota.getYVel();
+			&& xSpeed == pelota.getXSpeed() 
+			&& ySpeed == pelota.getYSpeed();
 		//x, y, wid, ht, color, xSpd, ySpd all equal
 	}   
 
 	//add the get methods
-	public int getXVel() {
+	public int getXSpeed() {
 		return xSpeed;
 	}
-	public int getYVel() {
+	public int getYSpeed() {
 		return ySpeed;
 	}
    //add a toString() method

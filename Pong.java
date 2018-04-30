@@ -102,8 +102,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		if(didCollideLeft()) {
 		
 			//reset ball
-			ball.setXVel(0);
-			ball.setYVel(0);
+			ball.setXSpeed(0);
+			ball.setYSpeed(0);
 			ball.draw(graphToBack, Color.WHITE);
 			ball.setPos(ballXi, ballYi);
 			ball.setColor(Color.WHITE);
@@ -119,8 +119,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			
 			ball = new Ball(400, 300, 10, 10, Color.BLUE);
 			ball.draw(graphToBack, Color.YELLOW);
-			ball.setXVel(3);
-			ball.setYVel(1);
+			ball.setXSpeed(3);
+			ball.setYSpeed(1);
 //			leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 //			rightPaddle = new Paddle(780, 244, 10, 70, Color.YELLOW, 4);
 			
@@ -133,8 +133,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//if ball collides with right wall
 		if(didCollideRight()) {
 			//reset ball
-			ball.setXVel(0);
-			ball.setYVel(0);
+			ball.setXSpeed(0);
+			ball.setYSpeed(0);
 			ball.draw(graphToBack, Color.WHITE);
 			ball.setPos(ballXi, ballYi);
 			ball.setColor(Color.WHITE);
@@ -151,8 +151,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			
 			ball = new Ball(400, 250, 10, 10, Color.BLUE);
 			ball.draw(graphToBack, Color.YELLOW);
-			ball.setXVel(3);
-			ball.setYVel(1);
+			ball.setXSpeed(3);
+			ball.setYSpeed(1);
 //			leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 //			rightPaddle = new Paddle(780, 244, 10, 70, Color.YELLOW, 4);
 			
@@ -163,16 +163,16 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		}
 		//if ball collides with top or bottom change velocity
 		if(didCollideTop() || didCollideBottom())
-			ball.setYVel(-ball.getYVel());
+			ball.setYSpeed(-ball.getYSpeed());
 	
 
 		//if ball collides with left paddle
-		if(ball.getX() - ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXVel())
+		if(ball.getX() - ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXSpeed())
 			&& ball.getY() >= leftPaddle.getY()
 			&& (ball.getY() <= leftPaddle.getY()+leftPaddle.getHeight()
 			|| ball.getY()+ball.getHeight() >= leftPaddle.getY()
 			&& ball.getY()+ball.getHeight() < leftPaddle.getY()+leftPaddle.getHeight())) {
-			ball.setXVel(-ball.getXVel());
+			ball.setXSpeed(-ball.getXSpeed());
 		}
 			
 		//if ball collides with right paddle
@@ -181,7 +181,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				&& (ball.getY() <= rightPaddle.getY()+rightPaddle.getHeight()
 				|| ball.getY()+ball.getHeight() >= rightPaddle.getY()
 				&& ball.getY()+ball.getHeight() < rightPaddle.getY()+rightPaddle.getHeight())) {
-			ball.setXVel(-ball.getXVel());
+			ball.setXSpeed(-ball.getXSpeed());
 		}
 			
 	//MOVEMENT FOR PADDLES
