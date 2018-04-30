@@ -9,11 +9,11 @@ public class SoundEffects {
 	   }
 	public static Volume volume = Volume.LOW;
 	
-	public SoundEffects() {
-		
+//	public SoundEffects() {
+//		
 //		clip = AudioSystem.getClip();
-	}
-	public void sound(String filename) {
+//	}
+	public SoundEffects(String filename) {
 		 try {
 	         // Use URL (instead of File) to read from disk and JAR.
 	         URL url = this.getClass().getClassLoader().getResource("./sounds/"+filename);

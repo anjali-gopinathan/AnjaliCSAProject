@@ -102,8 +102,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		horde.checkShipDeath(ship);
 
 		if (horde.getSize() == 0) {
-//			SoundEffects noise = new SoundEffects();
-//			noise.sound("YouWin.wav");
+//			SoundEffects noise = new SoundEffects("YouWin.wav");
 			System.out.println("You win!");
 			System.exit(0);
 		}

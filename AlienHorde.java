@@ -53,10 +53,9 @@ public class AlienHorde {
 	}
 
 	public void checkShipDeath(Ship ship) {
-		SoundEffects noise = new SoundEffects();
 		for (int i = 0; i < aliens.size(); i++)
 			if (ship.isCollide(aliens.get(i))) {
-//				noise.sound("GameOver_YouLose.wav");
+//				SoundEffects noise = new SoundEffects("GameOver_YouLose.wav");
 				System.out.println("You lose. \nNumber of aliens killed = " + (origSize - aliens.size()));
 				System.exit(0);
 			}
