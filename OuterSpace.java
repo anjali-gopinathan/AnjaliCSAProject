@@ -6,15 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
-
-/**
- * 
- * CROP alien.JPG and ship.jpg AS SMALL AS YOU CAN WITHOUT DAMAGING PICTURE FOR OPTIMAL COLLISIONS
- *
- */
-
-
-
 @SuppressWarnings("serial")
 public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
@@ -41,9 +32,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		horde = new AlienHorde(hordeSize);
 		shots = new Bullets();
 		
-		for(int x = 8; x < StarFighter.WIDTH - 100; x += (StarFighter.WIDTH) / 8)
-			for(int y = 22; y < StarFighter.HEIGHT / 1.5; y += (StarFighter.HEIGHT / 1.5) / 4)
+		for(int x = 8; x < StarFighter.WIDTH - 100; x += (StarFighter.WIDTH) / 8) {
+			for(int y = 22; y < StarFighter.HEIGHT / 1.5; y += (StarFighter.HEIGHT / 1.5) / 4) {
 				horde.add(new Alien(x + 20, y, 25, 25, 1));
+			}
+		}
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -94,10 +87,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		}
 	}
 		if (keys[4] == true) {
-			if (tick >= 70) {
+//			if (tick >= 70) {
 				shots.add(new Ammo(ship.getX() + ship.getWidth() / 2 - 2, ship.getY(), 5));
+				keys[4] = false;
 				tick = 0;
-			}
+//			}
 		}
 
 		// update
@@ -108,6 +102,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		horde.checkShipDeath(ship);
 
 		if (horde.getSize() == 0) {
+			SoundEffects noise = new SoundEffects();
+			noise.sound("YouWin.wav");
 			System.out.println("You win!");
 			System.exit(0);
 		}
@@ -136,7 +132,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			keys[3] = true;
 		}
-		if (e.getKeyCode() == KeyEvent.VK_A) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			keys[4] = true;
 		}
 	}
@@ -154,7 +150,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			keys[3] = false;
 		}
-		if (e.getKeyCode() == KeyEvent.VK_A) {
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			keys[4] = false;
 		}
 	}

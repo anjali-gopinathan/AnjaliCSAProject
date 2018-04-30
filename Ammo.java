@@ -42,6 +42,8 @@ public class Ammo extends MovingThing
 
 	public void draw( Graphics window )
 	{
+		SoundEffects noise = new SoundEffects();
+		noise.sound("GunShot.wav");
 		window.setColor(Color.GREEN);
 		window.fillRect(getX(), getY(), 10, 10);
 	}
