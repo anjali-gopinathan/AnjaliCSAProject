@@ -422,5 +422,53 @@ public class Picture extends SimplePicture
 	    }
 	}
 
+	public Picture decode() {
+		// TODO Auto-generated method stub
+		Pixel[][] pixels = this.getPixels2D();
+
+		Picture messagePicture = new Picture(pixels.length, pixels[0].length);
+		Pixel[][] messagePixels = messagePicture.getPixels2D();
+		messagePixels = pixels;
+		int count=0;
+		for(int r=0; r<pixels.length; r++) {
+			for(int c=0; c<pixels[0].length; c++) {
+				Pixel pixelObj = pixels[r][c];
+				Pixel messagePixel = messagePixels[r][c];
+				if(pixelObj.getGreen() == pixelObj.getRed() - 2 && pixelObj.getRed() == pixelObj.getBlue() - 2){
+			        messagePixel.setColor(Color.BLACK);
+			        count++;
+				}
+			}
+		}
+		
+		
+		return  messagePicture;
+	}
+
+	public void encode(Picture messagePict) {
+		// TODO Auto-generated method stub
+		Pixel[][] messagePixels = messagePict.getPixels2D();
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel currPixel = null;
+		Pixel messagePixel = null;
+		int count = 0;
+		
+		for(int r=0; r<pixels.length; r++){
+			for(int c=0; c<pixels[0].length; c++) {
+				Pixel pixelObj = pixels[r][c];
+				if(messagePixels[r][c].getColor().equals(Color.BLACK)){
+					if(pixelObj.getGreen() == pixelObj.getBlue() && pixelObj.getGreen() == pixelObj.getRed()){
+						pixelObj.setGreen(pixelObj.getGreen()-2);
+						pixelObj.setRed(pixelObj.getRed());
+						pixelObj.setBlue (pixelObj.getBlue() +2);
+						count++;
+					}
+				}
+			}
+		}
+		
+		System.out.println(count);
+	}
+
   
 } // this brace is the end of class Picture, put all new methods before this

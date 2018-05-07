@@ -57,7 +57,7 @@ public class PictureTester
   {
     // uncomment a call here to run a test
     // and comment out the ones you don't want to run
-	  testBlur(160, 190, 80, 80, 10);		//labAssessment 4/24/18
+//	  testBlur(160, 190, 80, 80, 10);		//labAssessment 4/24/18
 	  //    testZeroBlue();		//done
 //    testKeepOnlyBlue();	//done
 //    testKeepOnlyRed();	//done
@@ -73,7 +73,8 @@ public class PictureTester
 //    testCollage();		//already done
 //    testCopy();				//done
 //    testEdgeDetection();	//dunzo
-    
+	  testEncode();
+	  testDecode();
 /*  don't do these:
   	//testEdgeDetection2();
     //testChromakey();
@@ -83,6 +84,26 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);*/
   }
+  private static void testDecode() {
+	// TODO Auto-generated method stub
+	Picture redMoto = new Picture("redMotorcycle.jpg");
+	redMoto.explore();
+	redMoto.decode();
+	redMoto.explore();
+	
+	
+  }
+
+  private static void testEncode() {
+	// TODO Auto-generated method stub
+	Picture redMoto = new Picture("redMotorcycle.jpg");
+	Picture pictureMessage = new Picture("msg.jpg");
+//	redMoto.explore();
+	redMoto.encode(pictureMessage);
+//	redMoto.explore();
+	
+  }
+
   private static void testBlur(int x, int y, int w, int h, int n) {
 	  Picture redMoto = new Picture("redMotorcycle.jpg");
 	  redMoto.explore();
