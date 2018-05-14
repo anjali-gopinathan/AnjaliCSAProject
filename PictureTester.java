@@ -86,21 +86,22 @@ public class PictureTester
   }
   private static void testDecode() {
 	// TODO Auto-generated method stub
-	Picture redMoto = new Picture("redMotorcycle.jpg");
-	redMoto.explore();
-	redMoto.decode();
-	redMoto.explore();
+	Picture image = new Picture("beach.jpg");
+//	redMoto.explore();
+	image.decode();
+	image.explore();
 	
 	
   }
 
   private static void testEncode() {
 	// TODO Auto-generated method stub
-	Picture redMoto = new Picture("redMotorcycle.jpg");
-	Picture pictureMessage = new Picture("msg.jpg");
-//	redMoto.explore();
-	redMoto.encode(pictureMessage);
-//	redMoto.explore();
+	Picture image = new Picture("beach.jpg");
+	Picture messagePic = new Picture("msg.jpg");
+//	pictureMessage.explore();
+	image.explore();
+	image.encode(messagePic);
+	image.explore();
 	
   }
 

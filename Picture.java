@@ -29,7 +29,7 @@ public class Picture extends SimplePicture
   public Picture(String fileName)
   {
     super(fileName);
-    System.out.println("Anjali Gopinathan\nAPCSA period 2\n4/24/18\nComputer 23");
+//    System.out.println("Anjali Gopinathan\nAPCSA period 2\n4/24/18\nComputer 23");
   }
   
   /**
@@ -422,47 +422,62 @@ public class Picture extends SimplePicture
 	    }
 	}
 
-	public Picture decode() {
+	public void decode() {
 		// TODO Auto-generated method stub
 		Pixel[][] pixels = this.getPixels2D();
 
-		Picture messagePicture = new Picture(pixels.length, pixels[0].length);
-		Pixel[][] messagePixels = messagePicture.getPixels2D();
-		messagePixels = pixels;
+//		Picture messagePicture = new Picture(pixels.length, pixels[0].length);
+//		Pixel[][] messagePixels = messagePicture.getPixels2D();
+//		messagePixels = pixels;
 		int count=0;
 		for(int r=0; r<pixels.length; r++) {
 			for(int c=0; c<pixels[0].length; c++) {
 				Pixel pixelObj = pixels[r][c];
-				Pixel messagePixel = messagePixels[r][c];
-				if(pixelObj.getGreen() == pixelObj.getRed() - 2 && pixelObj.getRed() == pixelObj.getBlue() - 2){
-			        messagePixel.setColor(Color.BLACK);
+//				Pixel messagePixel = messagePixels[r][c];
+				if(pixelObj.getGreen() == pixelObj.getBlue() - 10){
+			        pixelObj.setColor(Color.BLACK);
 			        count++;
+				}
+				else{
+					pixelObj.setColor(Color.WHITE);
 				}
 			}
 		}
-		
-		
-		return  messagePicture;
+
 	}
 
 	public void encode(Picture messagePict) {
-		// TODO Auto-generated method stub
+
 		Pixel[][] messagePixels = messagePict.getPixels2D();
 		Pixel[][] pixels = this.getPixels2D();
-		Pixel currPixel = null;
-		Pixel messagePixel = null;
+
 		int count = 0;
+		int rows, cols;
 		
-		for(int r=0; r<pixels.length; r++){
-			for(int c=0; c<pixels[0].length; c++) {
-				Pixel pixelObj = pixels[r][c];
-				if(messagePixels[r][c].getColor().equals(Color.BLACK)){
-					if(pixelObj.getGreen() == pixelObj.getBlue() && pixelObj.getGreen() == pixelObj.getRed()){
-						pixelObj.setGreen(pixelObj.getGreen()-2);
-						pixelObj.setRed(pixelObj.getRed());
-						pixelObj.setBlue (pixelObj.getBlue() +2);
+		//use dimensions of smaller width/length
+		if(pixels.length == messagePixels.length) rows = pixels.length;
+		else if(pixels.length < messagePixels.length) rows = pixels.length;
+		else rows = messagePixels.length;
+		
+		if(pixels[0].length == messagePixels[0].length) cols = pixels[0].length;
+		else if(pixels[0].length < messagePixels[0].length)	cols = pixels[0].length;
+		else cols = messagePixels[0].length;
+		
+		for(int r=0; r<rows; r++){
+			for(int c=0; c<cols; c++) {
+				
+				Pixel imagePixel = pixels[r][c];
+				Pixel messagePixel = messagePixels[r][c];
+				
+				if(messagePixel.getColor().equals(Color.BLACK)){
+					if(Math.abs(imagePixel.getGreen() - imagePixel.getBlue())<10){	//check if green and blue are within 10 of each other
+						imagePixel.setGreen(imagePixel.getGreen()-5);
+						imagePixel.setBlue (imagePixel.getBlue() +5);
 						count++;
 					}
+//					else if(Math.abs(pixelObj.getGreen() - pixelObj.getBlue()) == 10){
+//						
+//					}
 				}
 			}
 		}
