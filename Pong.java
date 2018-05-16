@@ -69,17 +69,17 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//create a graphics reference to the back ground image
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
-		graphToBack.setColor(Color.WHITE);
-		graphToBack.drawString("Right points: "+(rightScore-1), 275, 50);	
-
-		graphToBack.setColor(Color.BLACK);
-		graphToBack.drawString("Right points: "+rightScore, 275, 50);	
-
-		graphToBack.setColor(Color.WHITE);
-		graphToBack.drawString("Left score: "+(leftScore-1), 275, 70);	
-
-		graphToBack.setColor(Color.BLACK);
-		graphToBack.drawString("Left score: "+leftScore, 275, 70);	
+//		graphToBack.setColor(Color.WHITE);
+//		graphToBack.drawString("Right points: "+(rightScore-1), 275, 50);	
+//
+//		graphToBack.setColor(Color.BLACK);
+//		graphToBack.drawString("Right points: "+rightScore, 275, 50);	
+//
+//		graphToBack.setColor(Color.WHITE);
+//		graphToBack.drawString("Left points: "+(leftScore-1), 275, 70);	
+//
+//		graphToBack.setColor(Color.BLACK);
+//		graphToBack.drawString("Left points: "+leftScore, 275, 70);	
 
 		//draw objects
 		ball.moveAndDraw(graphToBack);
@@ -102,8 +102,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		if(didCollideLeft()) {
 		
 			//reset ball
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+			ball.setXVel(0);
+			ball.setYVel(0);
 			ball.draw(graphToBack, Color.WHITE);
 			ball.setPos(ballXi, ballYi);
 			ball.setColor(Color.WHITE);
@@ -119,8 +119,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			
 			ball = new Ball(400, 300, 10, 10, Color.BLUE);
 			ball.draw(graphToBack, Color.YELLOW);
-			ball.setXSpeed(3);
-			ball.setYSpeed(1);
+			ball.setXVel(3);
+			ball.setYVel(1);
 //			leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 //			rightPaddle = new Paddle(780, 244, 10, 70, Color.YELLOW, 4);
 			
@@ -133,8 +133,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//if ball collides with right wall
 		if(didCollideRight()) {
 			//reset ball
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+			ball.setXVel(0);
+			ball.setYVel(0);
 			ball.draw(graphToBack, Color.WHITE);
 			ball.setPos(ballXi, ballYi);
 			ball.setColor(Color.WHITE);
@@ -151,8 +151,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			
 			ball = new Ball(400, 250, 10, 10, Color.BLUE);
 			ball.draw(graphToBack, Color.YELLOW);
-			ball.setXSpeed(3);
-			ball.setYSpeed(1);
+			ball.setXVel(3);
+			ball.setYVel(1);
 //			leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 //			rightPaddle = new Paddle(780, 244, 10, 70, Color.YELLOW, 4);
 			
@@ -163,16 +163,17 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		}
 		//if ball collides with top or bottom change velocity
 		if(didCollideTop() || didCollideBottom())
-			ball.setYSpeed(-ball.getYSpeed());
-	
+			ball.setYVel(-ball.getYVel());
+		if(didCollideLeft() || didCollideRight())
+			ball.setXVel(-ball.getXVel());
 
 		//if ball collides with left paddle
-		if(ball.getX() - ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXSpeed())
+		if(ball.getX() - ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXVel())
 			&& ball.getY() >= leftPaddle.getY()
 			&& (ball.getY() <= leftPaddle.getY()+leftPaddle.getHeight()
 			|| ball.getY()+ball.getHeight() >= leftPaddle.getY()
 			&& ball.getY()+ball.getHeight() < leftPaddle.getY()+leftPaddle.getHeight())) {
-			ball.setXSpeed(-ball.getXSpeed());
+			ball.setXVel(-ball.getXVel());
 		}
 			
 		//if ball collides with right paddle
@@ -181,7 +182,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				&& (ball.getY() <= rightPaddle.getY()+rightPaddle.getHeight()
 				|| ball.getY()+ball.getHeight() >= rightPaddle.getY()
 				&& ball.getY()+ball.getHeight() < rightPaddle.getY()+rightPaddle.getHeight())) {
-			ball.setXSpeed(-ball.getXSpeed());
+			ball.setXVel(-ball.getXVel());
 		}
 			
 	//MOVEMENT FOR PADDLES

@@ -73,8 +73,8 @@ public class PictureTester
 //    testCollage();		//already done
 //    testCopy();				//done
 //    testEdgeDetection();	//dunzo
-	  testEncode();
-	  testDecode();
+	  testEncodeDecode();
+//	  testDecode();
 /*  don't do these:
   	//testEdgeDetection2();
     //testChromakey();
@@ -84,24 +84,26 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);*/
   }
-  private static void testDecode() {
-	// TODO Auto-generated method stub
-	Picture image = new Picture("beach.jpg");
-//	redMoto.explore();
-	image.decode();
-	image.explore();
-	
-	
-  }
+//  private static void testDecode() {
+//	// TODO Auto-generated method stub
+//	Picture image = new Picture("beach.jpg");
+////	redMoto.explore();
+//	image.decode();
+//	image.explore();
+//	
+//	
+//  }
 
-  private static void testEncode() {
+  private static void testEncodeDecode() {
 	// TODO Auto-generated method stub
 	Picture image = new Picture("beach.jpg");
-	Picture messagePic = new Picture("msg.jpg");
-//	pictureMessage.explore();
+	Picture messagePic = new Picture("apple_icon.jpg");
+	messagePic.explore();
 	image.explore();
 	image.encode(messagePic);
 	image.explore();
+	
+	image.decode().explore();
 	
   }
 

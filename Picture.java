@@ -422,27 +422,31 @@ public class Picture extends SimplePicture
 	    }
 	}
 
-	public void decode() {
+	public Picture decode() {
 		// TODO Auto-generated method stub
 		Pixel[][] pixels = this.getPixels2D();
 
-//		Picture messagePicture = new Picture(pixels.length, pixels[0].length);
-//		Pixel[][] messagePixels = messagePicture.getPixels2D();
+		Picture messagePicture = new Picture(pixels.length, pixels[0].length);
+		Pixel[][] messagePixels = messagePicture.getPixels2D();
+		Pixel messagePixel, imagePixel;
 //		messagePixels = pixels;
 		int count=0;
 		for(int r=0; r<pixels.length; r++) {
 			for(int c=0; c<pixels[0].length; c++) {
-				Pixel pixelObj = pixels[r][c];
-//				Pixel messagePixel = messagePixels[r][c];
-				if(pixelObj.getGreen() == pixelObj.getBlue() - 10){
-			        pixelObj.setColor(Color.BLACK);
+				imagePixel = pixels[r][c];	//currPixel
+				messagePixel = messagePixels[r][c];
+//				System.out.println("imagePixel r = " + imagePixel.getRed() + ", g = " + imagePixel.getGreen() + ", b = " + imagePixel.getBlue());
+				if(Math.abs(imagePixel.getGreen() - imagePixel.getBlue()) == 2){
+//			        System.out.println("Found pixel: r = " + r + ", c = " + c);
+					messagePixel.setColor(Color.BLACK);
 			        count++;
 				}
 				else{
-					pixelObj.setColor(Color.WHITE);
+					messagePixel.setColor(Color.WHITE);
 				}
 			}
 		}
+		return messagePicture;
 
 	}
 
@@ -451,7 +455,6 @@ public class Picture extends SimplePicture
 		Pixel[][] messagePixels = messagePict.getPixels2D();
 		Pixel[][] pixels = this.getPixels2D();
 
-		int count = 0;
 		int rows, cols;
 		
 		//use dimensions of smaller width/length
@@ -469,11 +472,15 @@ public class Picture extends SimplePicture
 				Pixel imagePixel = pixels[r][c];
 				Pixel messagePixel = messagePixels[r][c];
 				
+				int avg = (imagePixel.getGreen()+imagePixel.getBlue())/2;
+				
 				if(messagePixel.getColor().equals(Color.BLACK)){
-					if(Math.abs(imagePixel.getGreen() - imagePixel.getBlue())<10){	//check if green and blue are within 10 of each other
-						imagePixel.setGreen(imagePixel.getGreen()-5);
-						imagePixel.setBlue (imagePixel.getBlue() +5);
-						count++;
+					System.out.println("Black pixel at r = " + r +", c = " +c);
+					if(Math.abs(imagePixel.getGreen() - imagePixel.getBlue())<22){	//check if green and blue are within 10 of each other
+						
+						imagePixel.setGreen(avg - 1);
+//						imagePixel.setRed(avg);
+						imagePixel.setBlue (avg + 1);
 					}
 //					else if(Math.abs(pixelObj.getGreen() - pixelObj.getBlue()) == 10){
 //						
@@ -482,7 +489,6 @@ public class Picture extends SimplePicture
 			}
 		}
 		
-		System.out.println(count);
 	}
 
   
