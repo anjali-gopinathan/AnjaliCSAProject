@@ -95,9 +95,8 @@ public class PictureTester
 //  }
 
   private static void testEncodeDecode() {
-	// TODO Auto-generated method stub
 	Picture image = new Picture("beach.jpg");
-	Picture messagePic = new Picture("apple_icon.jpg");
+	Picture messagePic = new Picture("apple_icon.jpg");	//msg.jpg
 	messagePic.explore();
 	image.explore();
 	image.encode(messagePic);
