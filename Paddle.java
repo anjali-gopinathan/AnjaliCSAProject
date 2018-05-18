@@ -1,84 +1,75 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Paddle extends Block
 {
-   //instance variables
-	private int speed;
+   private int speed;
 
-	public Paddle() {
-		super(10,10);
-		setSpeed(5);
-	}
-	public Paddle(int xPos, int yPos) {
-		super(xPos, yPos);
-		setSpeed(5);
-	}
-	public Paddle(int xPos, int yPos, int spd) {
-		// TODO Auto-generated constructor stub
-		super(xPos, yPos);
-		setSpeed(spd);
-	}
-	public Paddle(int xPos, int yPos, int wid, int heit, int spd) {
-		super(xPos, yPos, wid, heit);
-		setSpeed(spd);
-	}	
-	public Paddle(int xPos, int yPos, int wid, int heit, Color c, int spd) {
-		super(xPos, yPos, wid, heit, c);
-		setSpeed(spd);
-	}	
-	public void setSpeed(int spd) {
-		speed = spd;
-	}
-
-	public void moveUpAndDraw(Graphics window) {
-//		Color temp = getColor();
-		  setColor(Color.WHITE); 
-		//draw a white ball at old ball location
-		draw(window, getColor());
-		   
-		//set new
-		setY(getY()-speed);
-
-		setColor(Color.BLACK);
-		//draw the ball at its new location
-		draw(window, getColor());
-
+   public Paddle()
+   {
+	   super(10,10);
+      speed = 5;
+      setWidth(20);
+      setHeight(80);
+      setColor(Color.RED);
+   }
+   public Paddle(int x, int y){
+	   super(x,y);
+	   setWidth(10);
+	   setHeight(10);
+	   setColor(Color.BLACK);
+	   speed = 5;
+   }
+   public Paddle (int x, int y, int s){
+	   super(x,y);
+	   speed = s;
+	   setWidth(10);
+	   setHeight(10);
+	   setColor(Color.BLACK);
+   }
+   public Paddle(int x, int y, int w, int h){
+	   super(x,y,w,h);
+   }
+   public Paddle(int x, int y, int w, int h, int s){
+	   super(x,y,w,h);
+	   speed = s;
+	   setColor(Color.BLACK);
+   }
+   public Paddle(int x, int y, int w, int h, Color c, int s){
+	   super(x,y,w,h,c);
+	   speed = s;
+   }
+   public void moveUpAndDraw(Graphics window)
+   {
+	   draw(window, Color.WHITE);
+	   setY(getY() - speed);
+	   draw(window);
    }
 
-   public void moveDownAndDraw(Graphics window) {
-//		Color temp = getColor();
-		   
-		//draw a white ball at old ball location
-		setColor(Color.WHITE);
-		
-		draw(window, getColor());
-		   
-		//set new
-		setY(getY()+speed);
-		setColor(Color.BLACK);
-		//draw the ball at its new location
-		draw(window, getColor());
+   public void moveDownAndDraw(Graphics window)
+   {
+	   draw(window, Color.WHITE);
+	   setY(getY() + speed);
+	   draw(window);
    }
-   public boolean equals(Object obj) {
-	   Paddle pad = (Paddle) obj;
-	   return super.equals(pad)
-			   && this.getSpeed() == pad.getSpeed();
+   public void moveLeftAndDraw(Graphics window){
+	   draw(window,Color.WHITE);
+	   setX(getX()-speed);
+	   draw(window);
    }
-   
-   //add get methods
-   public int getSpeed() {
+   public void moveRightAndDraw(Graphics window){
+	   draw(window,Color.WHITE);
+	   setX(getX()+speed);
+	   draw(window);
+   }
+
+   public int getSpeed(){
 	   return speed;
    }
    
-   //add a toString() method
-   public String toString() {
-	   return getX()+" "+getY()+" "+ getWidth()+" "+getHeight()+" "+getColor()+"\t"+getSpeed();
+   public String toString(){
+	   String output ="";
+	   output += getX() + " " + getY() + " " + getWidth() + " " + getHeight() + " " + getColor() + " " + getSpeed();
+	   return output;
    }
 }
