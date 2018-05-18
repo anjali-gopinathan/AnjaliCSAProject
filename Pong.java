@@ -20,8 +20,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	
 	private static final long serialVersionUID = 1L;
 	private Ball ball;
-	private Paddle leftPaddle;
-	private Paddle rightPaddle;
+//	private Paddle leftPaddle;
+//	private Paddle rightPaddle;
+	private Paddle thePaddle;
 	
 //	private Wall wall;
 	private boolean[] keys;
@@ -36,14 +37,13 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		//set up all variables related to the game
 		ball = new Ball(ballXi, ballYi, 10, 10);
-		leftPaddle = new Paddle (10,  240, 10, 70, Color.YELLOW, 4);
-		rightPaddle = new Paddle(780, 240, 10, 70, Color.YELLOW, 4);
+		thePaddle = new Paddle(230, 320, 40, 40, Color.YELLOW, 4);
 //		wall = new Wall(0,10000, 10, 550);
 
 		keys = new boolean[4];
 
-		leftScore = 0;
-		rightScore = 0;
+//		leftScore = 0;
+//		rightScore = 0;
     
     	setBackground(Color.WHITE);
 		setVisible(true);
@@ -83,8 +83,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		//draw objects
 		ball.moveAndDraw(graphToBack);
-		leftPaddle.draw(graphToBack);
-		rightPaddle.draw(graphToBack);
+		thePaddle.draw(graphToBack);
 		
 		//draw lower wall
 		graphToBack.setColor(Color.BLACK);
@@ -124,10 +123,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 //			leftPaddle = new Paddle(10, 244, 10, 70, Color.YELLOW, 4);
 //			rightPaddle = new Paddle(780, 244, 10, 70, Color.YELLOW, 4);
 			
-			if(rightScore == 10) {
-				System.out.println("RIGHT WINS");
-				System.exit(0);
-			}
+//			if(rightScore == 10) {
+//				System.out.println("RIGHT WINS");
+//				System.exit(0);
+//			}
 		}
 			
 		//if ball collides with right wall
@@ -161,45 +160,45 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				System.exit(0);
 			}
 		}
-		//if ball collides with top or bottom change velocity
+		//if ball collides with top or bottom or left or right then change velocity
 		if(didCollideTop() || didCollideBottom())
 			ball.setYVel(-ball.getYVel());
 		if(didCollideLeft() || didCollideRight())
 			ball.setXVel(-ball.getXVel());
 
 		//if ball collides with left paddle
-		if(ball.getX() - ball.getWidth() <= leftPaddle.getX()+Math.abs(ball.getXVel())
-			&& ball.getY() >= leftPaddle.getY()
-			&& (ball.getY() <= leftPaddle.getY()+leftPaddle.getHeight()
-			|| ball.getY()+ball.getHeight() >= leftPaddle.getY()
-			&& ball.getY()+ball.getHeight() < leftPaddle.getY()+leftPaddle.getHeight())) {
+		if(ball.getX() - ball.getWidth() <= thePaddle.getX()+Math.abs(ball.getXVel())
+			&& ball.getY() >= thePaddle.getY()
+			&& (ball.getY() <= thePaddle.getY()+thePaddle.getHeight()
+			|| ball.getY()+ball.getHeight() >= thePaddle.getY()
+			&& ball.getY()+ball.getHeight() < thePaddle.getY()+thePaddle.getHeight())) {
 			ball.setXVel(-ball.getXVel());
 		}
 			
 		//if ball collides with right paddle
-		if(ball.getX() >= rightPaddle.getX()-rightPaddle.getWidth()
-				&& ball.getY() >= rightPaddle.getY()
-				&& (ball.getY() <= rightPaddle.getY()+rightPaddle.getHeight()
-				|| ball.getY()+ball.getHeight() >= rightPaddle.getY()
-				&& ball.getY()+ball.getHeight() < rightPaddle.getY()+rightPaddle.getHeight())) {
+		if(ball.getX() >= thePaddle.getX()-thePaddle.getWidth()
+				&& ball.getY() >= thePaddle.getY()
+				&& (ball.getY() <= thePaddle.getY()+thePaddle.getHeight()
+				|| ball.getY()+ball.getHeight() >= thePaddle.getY()
+				&& ball.getY()+ball.getHeight() < thePaddle.getY()+thePaddle.getHeight())) {
 			ball.setXVel(-ball.getXVel());
 		}
 			
 	//MOVEMENT FOR PADDLES
 		//left player
 		if(keys[0] == true) {
-			leftPaddle.moveUpAndDraw(graphToBack);
+			thePaddle.moveUpAndDraw(graphToBack);
 		}
 		if(keys[1] == true) {
-			leftPaddle.moveDownAndDraw(graphToBack);
+			thePaddle.moveLeftAndDraw(graphToBack);
 		}
 		
 		//right player
 		if(keys[2] == true) {
-			rightPaddle.moveUpAndDraw(graphToBack);
+			thePaddle.moveDownAndDraw(graphToBack);
 		}
 		if(keys[3] == true) {
-			rightPaddle.moveDownAndDraw(graphToBack);
+			thePaddle.moveRightAndDraw(graphToBack);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);
@@ -209,19 +208,19 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		switch(toUpperCase(e.getKeyChar()))
 		{
-			case 'W' : keys[0]=true; break;
-			case 'Z' : keys[1]=true; break;
-			case 'I' : keys[2]=true; break;
-			case 'M' : keys[3]=true; break;
+			case 'W' : keys[0]=true; break;	//up
+			case 'A' : keys[1]=true; break;	//left
+			case 'S' : keys[2]=true; break; //down
+			case 'D' : keys[3]=true; break; //right
 		}
 	}
    
 	public void keyReleased(KeyEvent e)	{
 		switch(toUpperCase(e.getKeyChar())) {
 			case 'W' : keys[0]=false; break;
-			case 'Z' : keys[1]=false; break;
-			case 'I' : keys[2]=false; break;
-			case 'M' : keys[3]=false; break;
+			case 'A' : keys[1]=false; break;
+			case 'S' : keys[2]=false; break;
+			case 'D' : keys[3]=false; break;
 		}
 	}
 
