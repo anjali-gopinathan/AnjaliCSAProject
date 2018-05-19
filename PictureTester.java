@@ -96,13 +96,13 @@ public class PictureTester
 
   private static void testEncodeDecode() {
 	Picture image = new Picture("beach.jpg");
-	Picture messagePic = new Picture("apple_icon.jpg");	//msg.jpg
-	messagePic.explore();
-	image.explore();
+	Picture messagePic = new Picture("apple_icon.jpg");	//msg.jpg, apple_icon.jpg
+	messagePic.explore();	//message before
+	image.explore();	//image before
 	image.encode(messagePic);
-	image.explore();
+	image.explore();	//image after
 	
-	image.decode().explore();
+	image.decode().explore();	//message after
 	
   }
 

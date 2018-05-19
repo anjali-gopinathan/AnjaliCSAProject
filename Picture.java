@@ -483,7 +483,7 @@ public class Picture extends SimplePicture
 						imagePixel.setBlue (avg + 1);
 					}
 //					else if(Math.abs(pixelObj.getGreen() - pixelObj.getBlue()) == 10){
-//						
+						
 //					}
 				}
 			}
